@@ -1,0 +1,133 @@
+<md-card class="card-payment">
+    <md-card-title class="card-header">
+        <md-card-title-text>
+            <span class="md-headline">
+                <h2 class="card-title">
+                    {{card.title}}
+                </h2>
+                <h4 class="number header-summ">
+                    {{card.summ | currency : symbol : fractionSize}}
+                </h4>
+            </span>
+            <span class="md-subhead">
+                {{card.description}}
+            </span>
+        </md-card-title-text>
+        <md-card-title-media>
+            <div class="md-media-sm card-media">
+                <img alt="Washed Out" class="md-card-image" ng-src="{{card.img}}">
+                </img>
+            </div>
+        </md-card-title-media>
+    </md-card-title>
+    <md-card-content class="card-content">
+        <md-list class="md-dense" flex="">
+            <md-list-item class="md-3-line payment" ng-class="{'not-paid' : !item.paid, 'selected' : card.selectedPayment == item}" ng-repeat="item in card.payments">
+                <div class="md-list-item-text" layout="column">
+                    <md-content ng-show="!item.editing" layout="row" layout-xs="column" ng-click="card.selectedPayment=item">
+                        <div flex="50" layout="column">
+                            <div class="payment-title" flex="">
+                                <h3>
+                                    {{item.title}}
+                                </h3>
+                            </div>
+                            <div class="payment-description" flex="">
+                                {{item.description}}
+                            </div>
+                        </div>
+                        <div flex="20" layout="row">
+                            <div class="payment-date-time" flex="">
+                                {{item.dateTime | date }}
+                            </div>
+                        </div>
+                        <div flex="30" layout="column" layout-align="center end">
+                            <div class="payment-value" flex="">
+                                <h3>
+                                    {{item.payment.value | currency : symbol : fractionSize}}
+                                </h3>
+                            </div>
+                            <div class="payment-target" flex="">
+                                <a href="#">
+                                    {{item.target.title}}
+                                </a>
+                            </div>
+                        </div>
+                    </md-content>
+                    
+                    <md-content ng-show="item.editing" layout="column" layout-xs="column">
+                      <card-payment-edit card="item">
+                    </md-content>
+
+                    <md-content class="card-action" ng-show="card.selectedPayment == item" layout-align="end center" layout="row" layout-xs="column">
+                      <md-button class="md-raised md-warn" ng-click="card.delete()">
+                          Delete
+                      </md-button>
+                      <md-button class="md-raised" ng-click="item.editing=true">
+                          Edit
+                      </md-button>
+                      <md-button class="md-raised" ng-click="card.selectedPayment = null">
+                          Cancel
+                      </md-button>
+                    </md-content>
+
+
+                </div>
+            </md-list-item>
+            <md-list-item ng-show="card.itemToEdit" class="md-3-line edit-payment">
+                <md-content layout="column">
+                    <div>
+                        <h3>New Payment</h3>
+                        <md-input-container>
+                            <label>
+                                Title
+                            </label>
+                            <input ng-model="card.itemToEdit.title" type="text">
+                            </input>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>
+                                Description
+                            </label>
+                            <input ng-model="card.itemToEdit.description" type="text">
+                            </input>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>
+                                Summ
+                            </label>
+                            <input ng-model="card.itemToEdit.payment.value" type="text">
+                            </input>
+                        </md-input-container>
+                        <md-checkbox aria-label="Checkbox No Ink" ng-model="card.itemToEdit.paid" class="md-primary" md-no-ink="">
+                            Paid
+                        </md-checkbox>
+                        <md-input-container>
+                            <label>
+                                Target
+                            </label>
+                            <input ng-model="card.itemToEdit.target.title" type="text">
+                            </input>
+                        </md-input-container>
+                    </div>
+                </md-content>
+            </md-list-item>
+            <md-divider>
+            </md-divider>
+        </md-list>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button ng-show="card.selectedPayment" class="md-warn" ng-click="card.edit(card.selectedPayment)">
+            Edit
+        </md-button>
+        <md-button ng-show="!card.itemToEdit" class="md-warn" ng-click="card.edit(null)">
+            Add
+        </md-button>
+        <md-button ng-show="card.itemToEdit" class="md-warn" ng-click="card.itemToEdit = null, card.selectedPayment = null">
+            Cancel
+        </md-button>
+        <md-button ng-show="card.itemToEdit" class="md-warn" ng-click="edit()">
+            Save
+        </md-button>
+
+    </md-card-actions>
+</md-card>

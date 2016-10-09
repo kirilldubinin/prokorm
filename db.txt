@@ -1,0 +1,25 @@
+- user 
+	- name
+	- email
+	
+
+- company
+	- projects: []
+		- name: String
+		- cardPayments: []
+			- title: String
+			- description: String
+			- currency: String
+			- payments: []
+				- title: String
+	            - description: String
+	            - date: Date,
+	            - payment
+	            	- value: Number
+	            - target
+	              	- title: String
+	            - paid: Boolean
+	            - images []
+	            	- title: String
+	            	- src: Bytes
+	- users: []

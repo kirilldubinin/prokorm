@@ -1,0 +1,36 @@
+<div layout="column" class="card-payment-edit-form">
+    <h2 class="payment-title" flex="100">
+        {{cardEdit.title || 'New Payment'}}
+    </h2>
+    <md-input-container flex="100">
+        <label>
+            Title
+        </label>
+        <input ng-model="cardEdit.title" type="text">
+        </input>
+    </md-input-container>
+    <md-input-container>
+        <label>
+            Description
+        </label>
+        <input ng-model="cardEdit.description" type="text">
+        </input>
+    </md-input-container>
+    <md-input-container>
+        <label>
+            Summ
+        </label>
+        <input ng-model="cardEdit.payment.value" type="text">
+        </input>
+    </md-input-container>
+    <md-checkbox aria-label="Checkbox No Ink" class="md-primary" md-no-ink="" ng-model="cardEdit.paid">
+        Paid
+    </md-checkbox>
+    <md-input-container>
+        <label>
+            Target
+        </label>
+        <input ng-model="cardEdit.target.title" type="text">
+        </input>
+    </md-input-container>
+</div>

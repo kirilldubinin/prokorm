@@ -1,0 +1,392 @@
+/**
+ *  Do not remove the comment below. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff) format('woff'),
+       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+/**
+ *  Do not remove the comment below. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector
+
+html, body {
+  background-color: #f0f0f0;
+}
+
+.card-payment {
+  
+  * {
+    outline: none;
+  }
+
+  .card-header {
+    border-bottom: 2px solid #FF9800;
+    padding-bottom: 0;
+  }
+  
+  .card-title {
+    margin: 0;
+    display: inline;
+    color: #4E342E;
+    vertical-align: bottom;
+    opacity: 0.9;
+  }
+
+  .header-summ {
+    margin: 0;
+    display: inline;
+    background-color: #FF9800;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #eee;
+    font-weight: normal;
+    margin-left: 20px;
+  }
+
+  .card-content {
+
+    padding: 0px 10px;
+
+    .payment {
+      margin: 0;
+      min-height: 1px;
+      padding: 6px;
+      border-bottom: 1px solid #9E9E9E;
+      cursor: pointer;
+
+      .card-item-menu {
+        
+      }
+
+      &.not-paid {
+        .payment-value {
+          h3 {
+            text-decoration: line-through;
+            opacity: 0.4;
+          }
+        }
+      }
+
+      &.selected {
+        /*border: 2px solid #FF9800;
+        margin: 4px 0;
+        border-radius: 4px;*/
+      }
+
+      .card-payment-edit-form {
+        border: 2px solid #FF9800;
+        border-radius: 4px;
+        padding: 4px 10px;
+
+        h2.payment-title {
+          color: #5D4037;
+          opacity: 0.9;
+          margin-top: 6px;
+        }
+      }
+
+      .card-action {
+        margin-top: 20px;
+      }
+
+      md-list-item-text {
+        padding: 0;
+        margin: 0
+      }
+
+      .payment-date-time {
+        font-size: 11px;
+        color: #616161;
+      }
+
+      .payment-description {
+        font-size: 11px;
+        color: #616161;
+      }
+
+      .payment-target {
+
+        a {
+          color: #3F51B5;
+          font-size: 11px;
+        }
+      }
+    }  
+
+    md-input-container {
+      margin: 18px 0 0 0;
+    }
+
+    .edit-payment {
+      border: 2px solid #FF9800;
+      border-radius: 4px;
+      padding: 6px;
+      margin: 6px 0;
+
+      h3 {
+        color: #5D4037;
+        opacity: 0.9;
+        margin-top: 6px;
+      }
+    }
+  }
+}
+
+b.cows-counter {
+  background-color: #555 !important;
+  color: #f0f0f0 !important;
+  padding: 2px 4px !important;
+  border-radius: 2px !important;
+}
+
+.building {
+  margin: 10px 20px;
+  height: auto;
+  width: 250px;
+
+  .header {
+    height: 34px;
+    color: #666;
+    h3 {
+      display: inline;
+    }
+
+    b {
+      float: right;
+      padding-top: 2px;
+    }
+  }
+
+  .groups {
+    height: 366px;
+  }
+
+  .group {
+    margin: 0 4px;
+    text-align: center;
+
+    .groups {
+      .group {
+        margin: 0;
+      }
+    }
+  }
+
+  .group-count {
+    height: auto !important;
+    border-radius: 2px !important;
+    padding: 4px 8px !important;
+    background-color: #555 !important;
+    color: #f0f0f0;
+    font-size: 12px;
+  }
+
+  .group-header {
+    height: 26px;
+    padding: 4px;
+    text-align: center;
+    line-height: 26px;
+    cursor: pointer;
+    margin-bottom: 12px;
+
+    .group-number {
+      font-weight: bold;
+      font-size: 16px;  
+      color: #f0f0f0;
+    }
+
+  }
+
+  .legend {
+
+    .legend-item  {
+      font-size: 12px;
+      padding: 0;
+      height: auto;
+      min-height: auto;
+      margin: 4px 0;
+    }
+    b {
+      color: #f0f0f0;
+      border-radius: 50%;
+      padding: 8px;
+      font-size: 12px;
+      margin-right: 8px;
+    }
+
+     .group-count {
+        position: absolute;
+        right: 0;
+        top: 4px;
+      }
+  }
+
+  .blue {
+    background-color: #B3E5FC;
+    .group-header {
+      background-color: #03A9F4;
+    }
+
+    &.legend-item {
+      background-color: transparent;
+      b {
+        background-color: #03A9F4;
+      }
+
+
+    }
+  }
+
+  .md-fab {
+    &.blue {
+      background-color: #03A9F4;
+    }
+  }
+
+  .green {
+    background-color: #A5D6A7;
+  }
+
+  .red {
+    background-color: #FFCCBC;
+    .group-header {
+      background-color: #FF5722;
+    }
+
+    &.legend-item {
+      background-color: transparent;
+      b {
+        background-color: #FF5722;
+      }
+    }
+  }
+
+  .yellow {
+    background-color: #FFE0B2;
+
+    .group-header {
+      background-color: #FF9800;
+    }
+
+    &.legend-item {
+      background-color: transparent;
+      b {
+        background-color: #FF9800;
+      }
+    }
+  }
+}
+
+.mixer {
+  width: 300px;
+}
+
+.ration {
+  
+  .mixer-counter {
+    border: 1px;
+  }
+
+  md-list-item {
+    &.ration-item {
+      position: relative;
+      min-height: 30px;
+      height: auto;
+      padding: 6px 16px;
+
+      h3 {
+        font-size: 14px;
+      }
+
+      p {
+        font-size: 10px;
+      }
+
+      b {
+        position: absolute;
+        right: 20px;
+        top: 8px;
+        color: #f0f0f0;
+        padding: 4px 6px;
+        border-radius: 3px;
+        font-size: 16px;
+        min-width: 30px;
+        text-align: right;
+      }
+
+      &.total {
+
+        border-top: 2px solid #666;
+        min-height: 1px;
+        height: 22px;
+        b {
+          color: #444;
+          font-size: 22px;
+          right: 10px;
+          top: 4px;
+        }
+      }
+
+      &.green {
+        b {
+          background-color: #009688;
+        }
+      }
+
+      &.yellow {
+        b {
+          background-color: #FFB74D;
+        }
+      }
+
+      &.blue {
+        b {
+          background-color: #0091EA;
+        }
+      }      
+    }
+  }
+}
+
+md-dialog {
+  opacity: 1;
+}
+.ration-dialog {
+  
+  background-color: #f0f0f0;
+
+  md-content {
+    background-color: #f0f0f0;    
+  }
+
+  md-toolbar {
+    &.blue {
+      background-color: #03A9F4;
+      color: #fff;
+      border-bottom: 2px solid #03A9F4;
+
+      b {
+        background-color: #03A9F4;
+        padding: 8px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
