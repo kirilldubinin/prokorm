@@ -1,234 +1,42 @@
+<md-toolbar class="farm-toolbar">
+  <div class="md-toolbar-tools">
+    <h2>
+      <span>ООО "Агропромснаб", Шатовка</span>
+    </h2>
+    <span flex></span>
+    <md-button class="md-raised" aria-label="Learn More">
+      Выйти
+    </md-button>
+  </div>
+</md-toolbar>
+
 <div layout="row">
-	<md-card md-theme="default" md-theme-watch>
+
+	<md-card ng-repeat="building in farm.buildings" md-theme="default" md-theme-watch>
     	<div flex class="building">
 			<div class="header">
-				<h3>Canada</h3>
-				<b class="cows-counter">220</b>
+				<h3>{{building.name}}</h3>
+				<b class="cows-counter">{{building.cowsCount}}</b>
 			</div>
 			<div class="groups" layout="row">
-				<div flex class="group blue">
-					<div class="group-header">
-						<b class="group-number">02</b>
+
+				<div ng-repeat="group in building.groups" flex class="group" ng-class="group.color">
+					<div ng-click="farm.showGroupDialog(group);" class="group-header">
+						<b class="group-number">{{group.number}}</b>
 					</div>
-					<b class="group-count">30</b>
-				</div>
-				<div flex class="group blue">
-					<div class="group-header">
-						<b class="group-number">02</b>
-					</div>
-					<b class="group-count cows-counter">30</b>
-				</div>
-				<div flex class="group yellow">
-					<div class="group-header">
-						<b class="group-number">03</b>
-					</div>
-				</div>
-				<div flex class="group">
-					<div class="groups" layout="column">
-						<div flex class="group yellow">
-							<div class="group-header">
-								<b class="group-number">03</b>
-							</div>
-						</div>
-						<div flex class="group red">
-							<div class="group-header">
-								<b class="group-number">12</b>
-							</div>
-						</div>
-					</div>
+					<b class="group-count">{{group.cowsCount}}</b>
 				</div>
 			</div>
 			<div class="legend">
 				<md-list>
-					<md-list-item class="blue legend-item noright">
-						<b class="group-number">02</b>
-						Первая группа, раздой >30
-						<b class="group-count">60</b>
-					</md-list-item>
-					<md-list-item class="yellow legend-item noright">
-						<b class="group-number">03</b>
-						Первотелки
-					</md-list-item>
-					<md-list-item class="red legend-item noright">
-						<b class="group-number">12</b>
-						Мастит
+					<md-list-item ng-repeat="group in building.groups" 
+						class="legend-item noright" ng-class="group.color">
+						<b class="group-number">{{group.number}}</b>
+						{{group.name}}
+						<b class="group-count">{{group.cowsCount}}</b>
 					</md-list-item>
 				</md-list>
 			</div>
 		</div>
     </md-card>
-	
-	<div flex>
-		<md-dialog class="ration-dialog" aria-label="Первая группа, раздой >30">
-		  <form>
-		    <md-toolbar class="blue">
-		      <div class="md-toolbar-tools">
-		        <h2>
-		        	<b>02</b> 
-		        	Первая группа, раздой >30
-		        	<b class="cows-counter">60</b>
-	        	</h2>
-		        <span flex></span>
-		        <md-button class="md-icon-button" ng-click="cancel()">
-		          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-		        </md-button>
-		      </div>
-		    </md-toolbar>
-		    <md-dialog-content>
-		      <md-tabs md-dynamic-height md-border-bottom>
-		        <md-tab label="6:15">
-
-		          <md-content class="md-padding">
-		            	<div layout="row">
-		            		<md-card md-theme="default" md-theme-watch class="mixer" flex>
-			            		<md-list class="md-dense ration">
-							        <!--<md-subheader class="md-no-sticky">Миксер</md-subheader>-->
-							        <md-list-item class="md-2-line ration-item green">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Сенаж многолетка</h3>
-							            <p>Курган #4</p>
-							            <b>800</b>
-							          </div>
-							        </md-list-item>
-							        <md-divider ></md-divider>	
-							        <md-list-item class="md-2-line ration-item green">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Силос кукуруза</h3>
-							            <p>Курган #4</p>
-							            <b>800</b>
-							          </div>
-							        </md-list-item>
-							        <md-divider ></md-divider>	
-							        <md-list-item class="md-2-line ration-item green">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Солома</h3>
-							            <p>Сеносклад</p>
-							            <b>250</b>
-							          </div>
-							        </md-list-item>
-							        <md-divider ></md-divider>
-
-						        	<md-list-item class="md-2-line ration-item yellow">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Жмых рапсовый</h3>
-							            <p>Склад</p>
-							            <b>120</b>
-							          </div>
-							        </md-list-item>
-							        <md-divider ></md-divider>
-
-							        <md-list-item class="md-2-line ration-item yellow">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Соль</h3>
-							            <p>Склад</p>
-							            <b>40</b>
-							          </div>
-							        </md-list-item>
-							        <md-divider ></md-divider>
-
-							        <md-list-item class="md-2-line ration-item blue">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Вода</h3>
-							            <p></p>
-							            <b>120</b>
-							          </div>
-							        </md-list-item>
-
-							        <md-list-item class="md-2-line ration-item total">
-							          <div class="md-list-item-text" layout="column">
-							            <h3></h3>
-							            <p></p>
-							            <b>1750</b>
-							          </div>
-							        </md-list-item>
-						        </md-list>	
-					        </md-card>
-					        <md-card md-theme="default" md-theme-watch class="mixer" flex>
-						        <md-list class="md-dense ration">
-							        <!--<md-subheader class="md-no-sticky">Миксер</md-subheader>-->
-							        <md-list-item class="md-2-line ration-item green">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Сенаж многолетка</h3>
-							            <p>Курган #4</p>
-							            <b>400</b>
-							          </div>
-							        </md-list-item>
-							        <md-divider ></md-divider>	
-							        <md-list-item class="md-2-line ration-item green">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Силос кукуруза</h3>
-							            <p>Курган #4</p>
-							            <b>400</b>
-							          </div>
-							        </md-list-item>
-							        <md-divider ></md-divider>	
-							        <md-list-item class="md-2-line ration-item green">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Солома</h3>
-							            <p>Сеносклад</p>
-							            <b>100</b>
-							          </div>
-							        </md-list-item>
-							        <md-divider ></md-divider>
-
-						        	<md-list-item class="md-2-line ration-item yellow">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Жмых рапсовый</h3>
-							            <p>Склад</p>
-							            <b>60</b>
-							          </div>
-							        </md-list-item>
-							        <md-divider ></md-divider>
-
-							        <md-list-item class="md-2-line ration-item yellow">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Соль</h3>
-							            <p>Склад</p>
-							            <b>20</b>
-							          </div>
-							        </md-list-item>
-							        <md-divider ></md-divider>
-
-							        <md-list-item class="md-2-line ration-item blue">
-							          <div class="md-list-item-text" layout="column">
-							            <h3>Вода</h3>
-							            <p></p>
-							            <b>60</b>
-							          </div>
-							        </md-list-item>
-
-							        <md-list-item class="md-2-line ration-item total">
-							          <div class="md-list-item-text" layout="column">
-							            <h3></h3>
-							            <p></p>
-							            <b>800</b>
-							          </div>
-							        </md-list-item>
-						        </md-list>	
-					        </md-card>
-		            	</div>
-			        </md-card>
-		          </md-content>
-		        </md-tab>
-		        <md-tab label="12:00">
-		          <md-content class="md-padding">
-		            <md-card md-theme="default" md-theme-watch class="mixer">
-						<md-list class="md-dense ration" flex>
-					        <md-subheader class="md-no-sticky">Миксер</md-subheader>
-					        <md-list-item class="md-2-line ration-item green">
-					          <div class="md-list-item-text" layout="column">
-					            <h3>Сенаж многолетка</h3>
-					            <p>Курган #4</p>
-					            <b>800</b>
-					          </div>
-					        </md-list-item>
-				        </md-list>	
-			        </md-card>
-		          </md-content>
-		        </md-tab>
-		      </md-tabs>
-		    </md-dialog-content>
-		  </form>
-	</md-dialog>
-	</div>
 </div>

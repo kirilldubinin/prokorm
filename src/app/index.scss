@@ -27,7 +27,11 @@
 // endinjector
 
 html, body {
-  background-color: #f0f0f0;
+  background-color: #dddddd;
+}
+
+md-toolbar.farm-toolbar {
+  background-color: #03A9F4;
 }
 
 .card-payment {
@@ -164,6 +168,7 @@ b.cows-counter {
   .header {
     height: 34px;
     color: #666;
+    padding: 0 4px;
     h3 {
       display: inline;
     }
@@ -298,6 +303,23 @@ b.cows-counter {
   width: 300px;
 }
 
+.md-subheader.md-default-theme, .md-subheader {
+  border-bottom: 2px solid;
+  margin-bottom: 8px;
+
+  .md-subheader-inner {
+    padding: 8px 16px;
+    color: #999;
+
+    b {
+      position: absolute;
+      right: 0;
+      /* background-color: #999; */
+      font-size: 20px;
+    }
+  }
+}
+
 .ration {
   
   .mixer-counter {
@@ -311,8 +333,13 @@ b.cows-counter {
       height: auto;
       padding: 6px 16px;
 
-      h3 {
+      a {
         font-size: 14px;
+        color: rgb(63,81,181);
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
       p {
