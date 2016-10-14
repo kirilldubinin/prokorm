@@ -1,0 +1,34 @@
+<div layout="row">
+
+	<md-card ng-repeat="house in building.buildings" md-theme="default" md-theme-watch>
+    	<div flex class="building">
+			<div class="header">
+				<h3>{{house.name}}</h3>
+				<b class="cows-count">{{house.cowsCount}}</b>
+
+			</div>
+			<div class="groups" layout="row">
+
+				<div ng-repeat="group in house.groups" flex class="group" ng-class="group.color">
+					<div ng-click="building.showGroupDialog(group);" class="group-header">
+						<b class="group-number">{{group.number}}</b>
+						<md-tooltip md-direction="top">
+				        	{{group.name}}
+				        </md-tooltip>
+					</div>
+					<b class="group-count">{{group.cowsCount}}</b>
+				</div>
+			</div>
+			<div class="legend">
+				<md-list>
+					<md-list-item ng-repeat="group in house.groups" 
+						class="legend-item noright" ng-class="group.color">
+						<b ng-click="building.showGroupDialog(group);" class="group-number">{{group.number}}</b>
+						{{group.name}}
+						<b class="cows-count group-count">{{group.cowsCount}}</b>
+					</md-list-item>
+				</md-list>
+			</div>
+		</div>
+    </md-card>
+</div>

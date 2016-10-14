@@ -3,10 +3,10 @@
 
   angular
     .module('mytodo')
-    .controller('FarmController', FarmController);
+    .controller('BuildingController', BuildingController);
 
   /** @ngInject */
-  function FarmController($mdDialog) {
+  function BuildingController($mdDialog) {
     var vm = this;
     vm.buildings = [
       {

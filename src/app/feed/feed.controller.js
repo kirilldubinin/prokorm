@@ -7,8 +7,8 @@
 
   /** @ngInject */
   function FeedController($scope, $mdDialog, group) {
-    //var vm = this;
-    //vm.group = group;
-    $scope.feed = feed;
+    var vm = this;
+    //$scope.feed = feed;
+    debugger;
   }
 })();

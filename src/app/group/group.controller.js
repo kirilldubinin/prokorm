@@ -10,7 +10,7 @@
     //var vm = this;
     //vm.group = group;
     $scope.group = group;
-
+    debugger;
     $scope.group.showFeedDialog = function (){
       $mdDialog.show({
         controller: 'FeedController',
