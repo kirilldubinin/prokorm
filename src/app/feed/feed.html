@@ -1,0 +1,29 @@
+<md-dialog class="feed-dialog" aria-label="">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          {{feed.title}}
+      </h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <md-card md-theme="default" md-theme-watch class="feeed-card" flex>
+        <md-list class="md-dense">
+          <md-subheader class="md-no-sticky">
+            Сенаж многолетка 
+          </md-subheader>
+          <md-list-item ng-repeat="feed in mixer.feeds" class="md-2-line ration-item" ng-class="feed.color">
+            <div class="md-list-item-text" layout="column">
+              <a href="#">{{feed.name}}</a>
+              <p>{{feed.source}}</p>
+              <b>{{feed.weight}}</b>
+            </div>
+          </md-list-item>
+          <md-divider ></md-divider>  
+        </md-list>  
+      </md-card>
+    </md-dialog-content>
+  </form>
+</md-dialog>

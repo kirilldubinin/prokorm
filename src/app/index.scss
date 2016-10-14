@@ -153,24 +153,26 @@ md-toolbar.farm-toolbar {
   }
 }
 
-b.cows-counter {
-  background-color: #555 !important;
-  color: #f0f0f0 !important;
+b.cows-count {
+  background-color: #transparent !important;
+  color: #333 !important;
   padding: 2px 4px !important;
   border-radius: 2px !important;
+  border: 1px solid;
 }
 
 .building {
   margin: 10px 20px;
   height: auto;
-  width: 250px;
+  width: 220px;
 
   .header {
     height: 34px;
-    color: #666;
+    color: #555;
     padding: 0 4px;
     h3 {
       display: inline;
+      font-size: 16px;
     }
 
     b {
@@ -180,7 +182,7 @@ b.cows-counter {
   }
 
   .groups {
-    height: 366px;
+    height: 260px;
   }
 
   .group {
@@ -198,9 +200,9 @@ b.cows-counter {
     height: auto !important;
     border-radius: 2px !important;
     padding: 4px 8px !important;
-    background-color: #555 !important;
-    color: #f0f0f0;
-    font-size: 12px;
+    color: #333;
+    font-size: 11px;
+    border: 1px solid;
   }
 
   .group-header {
@@ -209,7 +211,11 @@ b.cows-counter {
     text-align: center;
     line-height: 26px;
     cursor: pointer;
-    margin-bottom: 12px;
+    margin-bottom: 11px;
+    opacity: 0.8;
+    &:hover {
+      opacity: 1
+    }
 
     .group-number {
       font-weight: bold;
@@ -222,7 +228,7 @@ b.cows-counter {
   .legend {
 
     .legend-item  {
-      font-size: 12px;
+      font-size: 11px;
       padding: 0;
       height: auto;
       min-height: auto;
@@ -232,14 +238,19 @@ b.cows-counter {
       color: #f0f0f0;
       border-radius: 50%;
       padding: 8px;
-      font-size: 12px;
+      font-size: 11px;
       margin-right: 8px;
+      opacity: 0.8;
+      &:hover {
+        opacity: 1;
+      }
     }
 
      .group-count {
         position: absolute;
         right: 0;
         top: 4px;
+        opacity: 1;
       }
   }
 
@@ -251,7 +262,7 @@ b.cows-counter {
 
     &.legend-item {
       background-color: transparent;
-      b {
+      .group-number {
         background-color: #03A9F4;
       }
 
@@ -277,7 +288,7 @@ b.cows-counter {
 
     &.legend-item {
       background-color: transparent;
-      b {
+      .group-number {
         background-color: #FF5722;
       }
     }
@@ -292,7 +303,7 @@ b.cows-counter {
 
     &.legend-item {
       background-color: transparent;
-      b {
+      .group-number {
         background-color: #FF9800;
       }
     }
@@ -308,21 +319,36 @@ b.cows-counter {
   margin-bottom: 8px;
 
   .md-subheader-inner {
-    padding: 8px 16px;
-    color: #999;
+    padding: 6px 16px;
+
+    .md-subheader-content {
+      text-align: right;
+      padding-right: 22px;
+    }
+
+    * {
+      color: #222;
+    }
+    md-icon {
+      width: 20px;
+    }
 
     b {
+      font-size: 28px;
+      display: inline-block;
+      height: 24px;
+      line-height: 24px;
       position: absolute;
-      right: 0;
-      /* background-color: #999; */
-      font-size: 20px;
+      color: #222;
+      font-weight: normal;
+      top: 0px;
     }
   }
 }
 
 .ration {
   
-  .mixer-counter {
+  .mixer-count {
     border: 1px;
   }
 
@@ -404,6 +430,27 @@ md-dialog {
   }
 
   md-toolbar {
+
+    .group-number {
+      font-size: 32px;
+      margin-right: 10px;
+    }
+
+    .cows-count {
+      margin-left: 10px;
+
+    }
+
+    &.yellow {
+      background-color: #FFB74D;
+      color: #fff;
+      border-bottom: 2px solid #FFB74D;
+
+      b {
+        background-color: #FFB74D;
+      }
+    }
+
     &.blue {
       background-color: #03A9F4;
       color: #fff;
@@ -411,8 +458,6 @@ md-dialog {
 
       b {
         background-color: #03A9F4;
-        padding: 8px;
-        border-radius: 50%;
       }
     }
   }

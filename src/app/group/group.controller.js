@@ -6,13 +6,28 @@
     .controller('GroupController', GroupController);
 
   /** @ngInject */
-  function GroupController() {
-    var vm = this;
-    vm.buildings = [
-      {
-        name: '#1',
-        type: 'dairy'
-      }
-    ];
+  function GroupController($scope, $mdDialog, group) {
+    //var vm = this;
+    //vm.group = group;
+    $scope.group = group;
+
+    $scope.group.showFeedDialog = function (){
+      $mdDialog.show({
+        controller: 'FeedController',
+        templateUrl: './app/feed/feed.html',
+        parent: angular.element(document.body),
+        //targetEvent: ev,
+        clickOutsideToClose:true,
+        locals: {
+            feed : null
+        }
+        //fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+      })
+      .then(function(answer) {
+        
+      }, function() {
+        
+      });
+    }
   }
 })();

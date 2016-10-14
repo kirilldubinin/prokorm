@@ -16,13 +16,17 @@
     	<div flex class="building">
 			<div class="header">
 				<h3>{{building.name}}</h3>
-				<b class="cows-counter">{{building.cowsCount}}</b>
+				<b class="cows-count">{{building.cowsCount}}</b>
+
 			</div>
 			<div class="groups" layout="row">
 
 				<div ng-repeat="group in building.groups" flex class="group" ng-class="group.color">
 					<div ng-click="farm.showGroupDialog(group);" class="group-header">
 						<b class="group-number">{{group.number}}</b>
+						<md-tooltip md-direction="top">
+				        	{{group.name}}
+				        </md-tooltip>
 					</div>
 					<b class="group-count">{{group.cowsCount}}</b>
 				</div>
@@ -31,9 +35,9 @@
 				<md-list>
 					<md-list-item ng-repeat="group in building.groups" 
 						class="legend-item noright" ng-class="group.color">
-						<b class="group-number">{{group.number}}</b>
+						<b ng-click="farm.showGroupDialog(group);" class="group-number">{{group.number}}</b>
 						{{group.name}}
-						<b class="group-count">{{group.cowsCount}}</b>
+						<b class="cows-count group-count">{{group.cowsCount}}</b>
 					</md-list-item>
 				</md-list>
 			</div>
