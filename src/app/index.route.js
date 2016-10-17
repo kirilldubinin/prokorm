@@ -37,11 +37,13 @@
         url: '/building',
         templateUrl: 'app/building/building.html',
         controller: 'BuildingController',
-        controllerAs: 'building',
-        params: {
-          id: undefined
-        }
-      });
+        controllerAs: 'building'
+      }).state('farm.instance.feed', {
+        url: '/feed',
+        templateUrl: 'app/feed/feed.html',
+        controller: 'FeedController',
+        controllerAs: 'feed'
+      });;
 
 
 

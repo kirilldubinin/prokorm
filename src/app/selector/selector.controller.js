@@ -20,8 +20,12 @@
         url: '/feed'
       }, {
         name: 'Рационы',
-        img: 'img/ic_home_white_24px.svg',
+        img: 'img/ic_chrome_reader_mode_white_48px.svg',
         url: '/ration'
+      }, {
+        name: 'Молоко',
+        img: 'img/ic_opacity_white_48px.svg',
+        url: '/milk'
       }
     ];
 

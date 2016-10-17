@@ -1,9 +1,7 @@
 <div class="selector" layout="row">
-	
 	<md-button class="md-raised md-primary module" ng-repeat="module in selector.modules" ng-click="selector.onModuleClick(module)" flex>
-		<img ng-src="{{module.img}}" class="md-card-image" alt="Washed Out">
+		<img ng-src="{{module.img}}" class="md-card-image" alt="{{module.name}}">
 		<p>{{module.name}}</p>
 	</md-button>
-
 </div>
 

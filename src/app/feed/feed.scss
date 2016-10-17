@@ -1,0 +1,49 @@
+.feed {
+	
+	.feed-list {
+		font-size: 11px;
+
+		.feed-item {
+			background-color: #fff;
+
+			.year {
+				float: right;
+			    color: #3F51B5;
+			    font-weight: bold;
+			}
+
+			.title {
+				color: #333;
+			}
+
+			.source {
+				font-size: 10px;
+			}
+
+			.composition {
+				font-size: 10px;
+				color: #333;
+			}
+
+			.weight {
+				float: right;
+			    color: #3F51B5;
+			    font-weight: bold;
+			    font-size: 12px;
+			}
+
+			&.done {
+				background-color: #ddd;
+				p, b {
+					color: #999;
+				}
+			}
+		}
+	}
+
+	.feed-title {
+		color: #3F51B5;
+		text-shadow: 1px 1px 1px silver,
+               -1px 1px 1px silver;
+	}
+}

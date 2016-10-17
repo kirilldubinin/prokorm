@@ -3,7 +3,12 @@
     <h2>
       <span>ООО "Агропромснаб", Шатовка</span>
     </h2>
-    <span flex></span>
+    <span class="selectors" flex>
+    	<md-button class="module" ng-repeat="module in home.modules" ng-click="home.onModuleClick(module)" flex>
+		<img ng-src="{{module.img}}" class="md-card-image" alt="{{module.name}}">
+	</md-button>
+
+    </span>
     <md-button class="md-raised" aria-label="Learn More">
       Выйти
     </md-button>

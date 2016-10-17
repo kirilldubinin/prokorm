@@ -1,29 +1,60 @@
-<md-dialog class="feed-dialog" aria-label="">
-  <form>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>
-          {{feed.title}}
-      </h2>
-        <span flex></span>
+<div layout="row" class="feed">
+  <md-list flex="25" class="md-dense feed-list">
+    <!--<md-subheader class="md-no-sticky">
+      Корма 
+    </md-subheader>-->
+    <md-list-item ng-repeat="feedItem in feed.feedItems" class="md-3-line feed-item" ng-class="{done: feedItem.done}">
+      <div class="md-list-item-text" layout="column">
+        <p class="title">
+          {{feedItem.name}}
+          <b class="year">{{feedItem.year}}</b>  
+        </p>
+        <p class="composition">
+          {{feedItem.composition}}
+        </p>
+        <p class="source">
+          {{feedItem.source}}
+          <b class="weight">{{feedItem.weight}}</b> 
+        </p>
+        
       </div>
-    </md-toolbar>
-    <md-dialog-content>
-      <md-card md-theme="default" md-theme-watch class="feeed-card" flex>
-        <md-list class="md-dense">
-          <md-subheader class="md-no-sticky">
-            Сенаж многолетка 
-          </md-subheader>
-          <md-list-item ng-repeat="feed in mixer.feeds" class="md-2-line ration-item" ng-class="feed.color">
-            <div class="md-list-item-text" layout="column">
-              <a href="#">{{feed.name}}</a>
-              <p>{{feed.source}}</p>
-              <b>{{feed.weight}}</b>
-            </div>
-          </md-list-item>
-          <md-divider ></md-divider>  
-        </md-list>  
-      </md-card>
-    </md-dialog-content>
-  </form>
-</md-dialog>
+    </md-list-item>
+    <md-divider ></md-divider> 
+  </md-list>
+  <div flex>
+    <h2 class="feed-title">Сенаж многолетка (2016)</h2>
+    <div layout="row">
+      <md-card md-theme="default" md-theme-watch class="mixer" flex="25" class="feed-card">
+      <md-subheader class="md-no-sticky">
+        Питательность 
+      </md-subheader>
+      <md-list-item class="md-3-line feed-item">
+        <div class="md-list-item-text" layout="column">
+          <p class="title">
+            Сухое вещество
+            <b class="year">38%</b>  
+          </p>
+        </div>
+      </md-list-item>
+      <md-divider ></md-divider> 
+    </md-list>
+    </md-card>
+    <md-card md-theme="default" md-theme-watch class="mixer" flex="25" class="feed-card">
+      <md-subheader class="md-no-sticky">
+        Заготовка 
+      </md-subheader>
+      <md-list-item class="md-3-line feed-item">
+        <div class="md-list-item-text" layout="column">
+          <p class="title">
+            Сухое вещество
+            <b class="year">38%</b>  
+          </p>
+        </div>
+      </md-list-item>
+      <md-divider ></md-divider> 
+    </md-list>
+    </md-card>
+    </div>
+    
+  </div>
+</div>

@@ -1,7 +1,11 @@
 .selector {
+	
+	margin: 100px 0 0 0;
+
 	.module {
 
 		background-color: #03A9F4 !important;
+		margin: 20px 40px;
 
 		img {
 			height: 120px;
@@ -10,6 +14,13 @@
 
 		p {
 			margin: 0;
+		}
+
+		&:hover {
+			img {
+				height: 120px;
+				opacity: 1;
+			}
 		}
 	}	
 }
