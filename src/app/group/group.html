@@ -8,9 +8,9 @@
           <b class="cows-count">{{group.cowsCount}}</b>
       </h2>
         <span flex></span>
-        <md-button class="md-icon-button" ng-click="cancel()">
+        <!--<md-button class="md-icon-button" ng-click="cancel()">
           <md-icon md-svg-src="img/ic_close_white_24px.svg" aria-label="Close dialog"></md-icon>
-        </md-button>
+        </md-button>-->
       </div>
     </md-toolbar>
     <md-dialog-content>
@@ -26,7 +26,7 @@
                   </md-subheader>
                   <md-list-item ng-repeat="feed in mixer.feeds" class="md-2-line ration-item" ng-class="feed.color">
                     <div class="md-list-item-text" layout="column">
-                      <a ng-click="group.showFeedDialog();" href="#">{{feed.name}}</a>
+                      <a class="link" ng-click="group.showFeedDialog();" href="#">{{feed.name}}</a>
                       <p>{{feed.source}}</p>
                       <b>{{feed.weight}}</b>
                     </div>

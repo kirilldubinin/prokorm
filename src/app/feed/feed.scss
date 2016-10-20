@@ -1,4 +1,38 @@
 .feed {
+
+	.weight-control {
+		width: auto;
+	    /* padding: 2px 4px; */
+	    border: 2px solid #FF9800;
+	    height: 26px;
+	    border-radius: 3px;
+		font-size: 22px;
+		.left {
+		    color: #FF9800;
+		    padding: 2px 4px;
+		    font-weight: 600;
+		}
+
+		.total {
+		    background-color: #FF9800;
+		    color: #fff;
+		    padding: 2px 4px;
+		    font-weight: 600;
+		}
+
+		&.full {
+
+			border-color: #009688;
+			.left {
+				display: none;
+				color: #009688;
+			}
+
+			.total {
+			    background-color: #009688;
+			}
+		}
+	}
 	
 	.feed-list {
 		font-size: 11px;
@@ -7,9 +41,10 @@
 			background-color: #fff;
 
 			.year {
-				float: right;
+			    /* float: right; */
 			    color: #3F51B5;
 			    font-weight: bold;
+			    margin-top: 4px;
 			}
 
 			.title {
@@ -18,6 +53,7 @@
 
 			.source {
 				font-size: 10px;
+				margin-top: 2px;
 			}
 
 			.composition {
@@ -26,10 +62,13 @@
 			}
 
 			.weight {
-				float: right;
-			    color: #3F51B5;
-			    font-weight: bold;
-			    font-size: 12px;
+				&.weight-control {
+					margin-top: 2px;
+					line-height: 16px;
+					height: 15px;
+					float: right;
+					font-size: 11px;
+				}
 			}
 
 			&.done {
@@ -37,13 +76,98 @@
 				p, b {
 					color: #999;
 				}
+
+				.weight {
+					&.weight-control {
+						border: none;
+						color: #999;
+						.left {
+							display: none;
+						}
+						.total {
+							color: #999;
+							background-color: transparent;
+							padding: 0;
+						}
+					}
+				}
 			}
 		}
 	}
 
-	.feed-title {
-		color: #3F51B5;
-		text-shadow: 1px 1px 1px silver,
-               -1px 1px 1px silver;
+	.feed-card {
+		padding: 0 20px;
+		.feed-title {
+			color: #3F51B5;
+    		font-size: 20px;
+
+    		.feed-name {
+    			margin-right: 30px;
+    			b {
+    				font-size: 22px;
+    			}
+    		}
+		}
+
+		.feed-composition {
+			margin-top: -16px;
+		    margin-bottom: 30px;
+		    font-size: 14px;
+		    /* font-weight: 600; */
+		    color: #3F51B5;
+		}
+
+		.weight-wrapper {
+			line-height: 66px
+		}
+
+		.feed-property {
+			width: 200px;
+			font-size: 12px;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			.title {
+				padding-bottom: 4px;
+				font-weight: 600;
+				label {
+					width: 140px;
+					display: inline-block;
+					text-align: right;
+				}
+			}
+			.property {
+
+				padding: 4px 0;
+				label {
+					width: 140px;
+					display: inline-block;
+					text-align: right;
+					color: rgba(0,0,0,0.54);
+				}
+				span {
+				    margin-left: 4px;
+				    font-weight: 500;
+				    color: #333;
+				}	
+			}
+
+			&.ration {
+				.title {
+					label {
+						width: 140px;
+						display: inline-block;
+						text-align: left;
+					}
+				}
+				li {
+					a {
+						text-align: left;
+						font-size: 11px;
+					}
+				}
+			}
+		}
 	}
 }

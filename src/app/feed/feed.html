@@ -1,60 +1,164 @@
 <div layout="row" class="feed">
-  <md-list flex="25" class="md-dense feed-list">
+  <md-list flex="20" class="md-dense feed-list">
     <!--<md-subheader class="md-no-sticky">
       Корма 
     </md-subheader>-->
     <md-list-item ng-repeat="feedItem in feed.feedItems" class="md-3-line feed-item" ng-class="{done: feedItem.done}">
       <div class="md-list-item-text" layout="column">
-        <p class="title">
-          {{feedItem.name}}
+        <div layout="row">
+          <p flex class="title">{{feedItem.name}}</p>
+          <span class="weight weight-control" ng-class="{full: !feedItem.opened}">
+            <span ng-if="feedItem.opened" class="left">800</span>
+            <span class="total">{{feedItem.weight}}</span>
+          </span>
+        </div>
+        
+        <div layout="row">
+          <p flex class="composition">{{feedItem.composition}}</p>
           <b class="year">{{feedItem.year}}</b>  
-        </p>
-        <p class="composition">
-          {{feedItem.composition}}
-        </p>
-        <p class="source">
-          {{feedItem.source}}
-          <b class="weight">{{feedItem.weight}}</b> 
-        </p>
+        </div>
+        
+        <div layout="row">
+          <p flex class="source">
+            {{feedItem.source}}
+          </p>
+          <p class="source">
+            {{feedItem.storage}}
+          </p>
+        </div>
         
       </div>
     </md-list-item>
     <md-divider ></md-divider> 
   </md-list>
-  <div flex>
-    <h2 class="feed-title">Сенаж многолетка (2016)</h2>
-    <div layout="row">
-      <md-card md-theme="default" md-theme-watch class="mixer" flex="25" class="feed-card">
-      <md-subheader class="md-no-sticky">
-        Питательность 
-      </md-subheader>
-      <md-list-item class="md-3-line feed-item">
-        <div class="md-list-item-text" layout="column">
-          <p class="title">
-            Сухое вещество
-            <b class="year">38%</b>  
-          </p>
-        </div>
-      </md-list-item>
-      <md-divider ></md-divider> 
-    </md-list>
-    </md-card>
-    <md-card md-theme="default" md-theme-watch class="mixer" flex="25" class="feed-card">
-      <md-subheader class="md-no-sticky">
-        Заготовка 
-      </md-subheader>
-      <md-list-item class="md-3-line feed-item">
-        <div class="md-list-item-text" layout="column">
-          <p class="title">
-            Сухое вещество
-            <b class="year">38%</b>  
-          </p>
-        </div>
-      </md-list-item>
-      <md-divider ></md-divider> 
-    </md-list>
-    </md-card>
+  <md-card md-theme="default" flex md-theme-watch class="feed-card">
+    <div layout="row" class="feed-title">
+      <p class="feed-name">{{feed.selectedFeedItem.name}} <b>{{feed.selectedFeedItem.year}}</b></p>
+      <div class="weight-wrapper" flex> 
+        <span class="weight-control">
+          <span class="left">800</span>
+          <span class="total">{{feed.selectedFeedItem.weight}}</span>
+        </span>
+      </div>
+      
     </div>
+    <span class="feed-composition">{{feed.selectedFeedItem.composition}}</span>
+
+    <div layout="row">
+      <ul flex="30" class="feed-property">
+        <li class="title">
+          <label>Показатели</label>
+        </li>
+        <li class="property">
+          <label>Сухое вещество:</label>
+          <span>32.00 %</span>
+        </li>
+        <li class="property">
+          <label>Протеин:</label>
+          <span>5.24 %</span>
+        </li>
+        <li class="property">
+          <label>Переваримый протеин:</label>
+          <span>40.00 МДж</span>
+        </li>
+        <li class="property">
+          <label>Жир:</label>
+          <span>0.90 %</span>
+        </li>
+        <li class="property">
+          <label>Клетчатка:</label>
+          <span>11.30 %</span>
+        </li>
+        <li class="property">
+          <label>Сахар:</label>
+          <span>11.00 г</span>
+        </li>
+        <li class="property">
+          <label>Зола:</label>
+          <span>2.36 %</span>
+        </li>
+        <li class="property">
+          <label>Обменная энергия:</label>
+          <span>3.43 МДж</span>
+        </li>
+        <li class="property">
+          <label>Каротин:</label>
+          <span>10.00 мг/кг</span>
+        </li>
+        <li class="property">
+          <label>Крахмал:</label>
+          <span>7.10 г</span>
+        </li>
+      </ul>
+
+      <ul flex="30" class="feed-property">
+        <li class="title">
+          <label>Заготовка </label>
+        </li>
+        <li class="property">
+          <label>Поле:</label>
+          <span>123.11 78 ГА</span>
+        </li>
+        <li class="property">
+          <label>Укос:</label>
+          <span>Первый</span>
+        </li>
+        <li class="property">
+          <label>Начало:</label>
+          <span>11-06-2016</span>
+        </li>
+        <li class="property">
+          <label>Конец:</label>
+          <span>19-06-2016</span>
+        </li>
+        <li class="property">
+          <label>Консервант:</label>
+          <span>Josera Combi Special</span>
+        </li>
+        <li class="property">
+          <label>Дозировка:</label>
+          <span>150гр/50 тонн</span>
+        </li>
+        <li class="property">
+          <label>Укрытие:</label>
+          <span>Пленка вакуумная</span>
+        </li>
+        <li class="property">
+          <label>Хранение:</label>
+          <span>Курган #04</span>
+        </li>
+      </ul>
+
+      <ul flex="25" class="feed-property">
+        <li class="title">
+          <label>Кормление</label>
+        </li>
+        <li class="property">
+          <label>Начало:</label>
+          <span>22-10-2016</span>
+        </li>
+        <li class="property">
+          <label>Конец:</label>
+          <span>-</span>
+        </li>
+        <li class="property">
+          <label>Тонн в день:</label>
+          <span>1.2</span>
+        </li>
+      </ul>
+      <ul flex="15" class="feed-property ration">
+        <li class="title">
+          <label>Рационы</label>
+        </li>
+        <li class="property">
+          <a class="link" href="#">Рацион #12.2016</a>
+        </li>
+        <li class="property">
+          <a class="link" href="#">Рацион #04.2016</a>          
+        </li>
+      </ul>
+    </div>
+
+  </md-card>
     
-  </div>
 </div>
