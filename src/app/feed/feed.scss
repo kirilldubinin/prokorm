@@ -38,7 +38,18 @@
 		font-size: 11px;
 
 		.feed-item {
+			cursor: pointer;
 			background-color: #fff;
+			min-height: 68px;
+			border-bottom: 1px solid #eee;
+			button {
+				&.md-no-style {
+					min-height: 68px;
+				} 
+			}
+			.md-list-item-text {
+				line-height: normal;
+			}
 
 			.year {
 			    /* float: right; */
@@ -151,6 +162,13 @@
 				    font-weight: 500;
 				    color: #333;
 				}	
+			}
+
+			&.process,
+			&.feeding {
+				label {
+					width: 100px;
+				}
 			}
 
 			&.ration {

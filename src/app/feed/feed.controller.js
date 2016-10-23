@@ -6,10 +6,11 @@
     .controller('FeedController', FeedController);
 
   /** @ngInject */
-  function FeedController() {
+  function FeedController($window) {
     var vm = this;
     vm.feedItems = [
       {
+        _id: 1,
         name: 'Сенаж',
         source: 'Поле: 123.11 78 ГА',
         composition: 'Люцерна',
@@ -19,6 +20,7 @@
         storage: 'Курган #04',
         done: false
       }, {
+        _id: 2,
         name: 'Силос',
         source: 'Поле: 113.09 120 ГА',
         composition: 'Кукуруза',
@@ -62,6 +64,8 @@
       }
     ];
 
-    vm.selectedFeedItem = vm.feedItems[0];
+    vm.onFeedClick = function (feedItem) {
+        $window.location.href = '#/farm/kamenskoe/feed/' + feedItem._id;
+    };
   }
 })();

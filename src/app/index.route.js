@@ -38,16 +38,25 @@
         templateUrl: 'app/building/building.html',
         controller: 'BuildingController',
         controllerAs: 'building'
+      }).state('farm.instance.milk', {
+        url: '/milk',
+        templateUrl: 'app/milk/milk.html',
+        controller: 'MilkController',
+        controllerAs: 'milk'
       }).state('farm.instance.feed', {
         url: '/feed',
         templateUrl: 'app/feed/feed.html',
         controller: 'FeedController',
         controllerAs: 'feed'
-      });;
-
-
-
-
+      }).state('farm.instance.feed.instance', {
+        url: '/:feedId',
+        templateUrl: 'app/feedCard/feedCard.html',
+        controller: 'FeedCardController',
+        controllerAs: 'feedCard',
+        params: {
+          feedId: undefined
+        }
+      });
 
     /*$stateProvider.state('home', {
       url: '/home',
