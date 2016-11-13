@@ -48,6 +48,19 @@
         templateUrl: 'app/feed/feed.html',
         controller: 'FeedController',
         controllerAs: 'feed'
+      }).state('farm.instance.feed.new', {
+        url: '/new',
+        templateUrl: 'app/feed/feedEdit.html',
+        controller: 'FeedEditController',
+        controllerAs: 'feedEdit'
+      }).state('farm.instance.feed.edit', {
+        url: '/:feedId/edit',
+        templateUrl: 'app/feed/feedEdit.html',
+        controller: 'FeedEditController',
+        controllerAs: 'feedEdit',
+        params: {
+          feedId: undefined
+        }
       }).state('farm.instance.feed.instance', {
         url: '/:feedId',
         templateUrl: 'app/feedCard/feedCard.html',

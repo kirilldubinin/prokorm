@@ -6,9 +6,10 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log) {
+  function runBlock($log, url) {
 
     $log.debug('runBlock end');
+    url.setBase('#/farm/kamenskoe/');
   }
 
 })();

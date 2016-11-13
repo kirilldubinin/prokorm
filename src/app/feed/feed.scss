@@ -55,11 +55,12 @@
 			    /* float: right; */
 			    color: #3F51B5;
 			    font-weight: bold;
-			    margin-top: 4px;
+			    margin-top: 2px;
 			}
 
 			.title {
 				color: #333;
+			    font-size: 16px;
 			}
 
 			.source {
@@ -104,88 +105,5 @@
 				}
 			}
 		}
-	}
-
-	.feed-card {
-		padding: 0 20px;
-		.feed-title {
-			color: #3F51B5;
-    		font-size: 20px;
-
-    		.feed-name {
-    			margin-right: 30px;
-    			b {
-    				font-size: 22px;
-    			}
-    		}
-		}
-
-		.feed-composition {
-			margin-top: -16px;
-		    margin-bottom: 30px;
-		    font-size: 14px;
-		    /* font-weight: 600; */
-		    color: #3F51B5;
-		}
-
-		.weight-wrapper {
-			line-height: 66px
-		}
-
-		.feed-property {
-			width: 200px;
-			font-size: 12px;
-			list-style: none;
-			padding: 0;
-			margin: 0;
-
-			.title {
-				padding-bottom: 4px;
-				font-weight: 600;
-				label {
-					width: 140px;
-					display: inline-block;
-					text-align: right;
-				}
-			}
-			.property {
-
-				padding: 4px 0;
-				label {
-					width: 140px;
-					display: inline-block;
-					text-align: right;
-					color: rgba(0,0,0,0.54);
-				}
-				span {
-				    margin-left: 4px;
-				    font-weight: 500;
-				    color: #333;
-				}	
-			}
-
-			&.process,
-			&.feeding {
-				label {
-					width: 100px;
-				}
-			}
-
-			&.ration {
-				.title {
-					label {
-						width: 140px;
-						display: inline-block;
-						text-align: left;
-					}
-				}
-				li {
-					a {
-						text-align: left;
-						font-size: 11px;
-					}
-				}
-			}
-		}
-	}
+	}	
 }

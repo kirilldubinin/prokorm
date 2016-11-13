@@ -1,0 +1,25 @@
+<md-content class="feed-edit" layout-padding="">
+    <section layout-gt-sm="row">
+        <!-- FEED BLOCK -->
+        <div class="edit-block" flex="30" ng-repeat="block in feedEdit.feedItemControls">
+            <label class="title">
+                {{block.label}}
+            </label>
+            <!-- FEED BLOCK CONTROL-->
+            <md-input-container class="feed-property" ng-repeat="control in block.children">
+                <label>
+                    {{control.label}}  {{control.dimension}}
+                </label>
+                <input ng-model="feedEdit.feedItem[block.key][control.key]"/>
+            </md-input-container>
+        </div>
+    </section>
+    <section class="actions" layout="row" layout-align="center left" layout-sm="column" layout-wrap="">
+        <md-button class="md-raised" ng-click="feedEdit.cancel()">
+            Cancel
+        </md-button>
+        <md-button class="md-raised md-primary" ng-click="feedEdit.save()">
+            Save
+        </md-button>
+    </section>
+</md-content>

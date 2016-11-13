@@ -1,129 +1,42 @@
-<md-card md-theme="default" flex md-theme-watch class="feed-card">
-    <div layout="row" class="feed-title">
-      <p class="feed-name">{{feedCard.feed.name}} <b>{{feedCard.feed.year}}</b></p>
-      <div class="weight-wrapper" flex> 
-        <span class="weight-control">
-          <span class="left">800</span>
-          <span class="total">{{feedCard.feed.weight}}</span>
-        </span>
-      </div>
-      
+<div class="feed-card">
+  
+  <div layout="row" class="feed-title">
+    <p class="feed-name">{{feedCard.feed.general.name}} <b>{{feedCard.feed.general.year}}</b></p>
+    <div class="weight-wrapper"> 
+      <span class="weight-control">
+        <span class="left">800</span>
+        <span class="total">{{feedCard.feed.general.weight}}</span>
+      </span>
     </div>
-    <span class="feed-composition">{{feedCard.feed.composition}}</span>
-
-    <div layout="row">
-      <ul flex="30" class="feed-property">
-        <li class="title">
-          <label>Показатели</label>
-        </li>
-        <li class="property">
-          <label>Сухое вещество:</label>
-          <span>32.00 %</span>
-        </li>
-        <li class="property">
-          <label>Протеин:</label>
-          <span>5.24 %</span>
-        </li>
-        <li class="property">
-          <label>Переваримый протеин:</label>
-          <span>40.00 МДж</span>
-        </li>
-        <li class="property">
-          <label>Жир:</label>
-          <span>0.90 %</span>
-        </li>
-        <li class="property">
-          <label>Клетчатка:</label>
-          <span>11.30 %</span>
-        </li>
-        <li class="property">
-          <label>Сахар:</label>
-          <span>11.00 г</span>
-        </li>
-        <li class="property">
-          <label>Зола:</label>
-          <span>2.36 %</span>
-        </li>
-        <li class="property">
-          <label>Обменная энергия:</label>
-          <span>3.43 МДж</span>
-        </li>
-        <li class="property">
-          <label>Каротин:</label>
-          <span>10.00 мг/кг</span>
-        </li>
-        <li class="property">
-          <label>Крахмал:</label>
-          <span>7.10 г</span>
-        </li>
-      </ul>
-
-      <ul flex="30" class="feed-property process">
-        <li class="title">
-          <label>Заготовка </label>
-        </li>
-        <li class="property">
-          <label>Поле:</label>
-          <span>123.11 78 ГА</span>
-        </li>
-        <li class="property">
-          <label>Укос:</label>
-          <span>Первый</span>
-        </li>
-        <li class="property">
-          <label>Начало:</label>
-          <span>11-06-2016</span>
-        </li>
-        <li class="property">
-          <label>Конец:</label>
-          <span>19-06-2016</span>
-        </li>
-        <li class="property">
-          <label>Консервант:</label>
-          <span>Josera Combi Special</span>
-        </li>
-        <li class="property">
-          <label>Дозировка:</label>
-          <span>150гр/50 тонн</span>
-        </li>
-        <li class="property">
-          <label>Укрытие:</label>
-          <span>Пленка вакуумная</span>
-        </li>
-        <li class="property">
-          <label>Хранение:</label>
-          <span>Курган #04</span>
-        </li>
-      </ul>
-
-      <ul flex="25" class="feed-property feeding">
-        <li class="title">
-          <label>Кормление</label>
-        </li>
-        <li class="property">
-          <label>Начало:</label>
-          <span>22-10-2016</span>
-        </li>
-        <li class="property">
-          <label>Конец:</label>
-          <span>-</span>
-        </li>
-        <li class="property">
-          <label>Тонн в день:</label>
-          <span>1.2</span>
-        </li>
-      </ul>
-      <ul flex="15" class="feed-property ration">
-        <li class="title">
-          <label>Рационы</label>
-        </li>
-        <li class="property">
-          <a class="link" href="#">Рацион #12.2016</a>
-        </li>
-        <li class="property">
-          <a class="link" href="#">Рацион #04.2016</a>          
-        </li>
-      </ul>
+    <div class="actions" flex>
+      <md-button class="md-raised" ng-click="feedCard.diff()">
+        Diff
+      </md-button>
+      <md-button class="md-raised" ng-click="feedCard.edit()">
+        Edit
+      </md-button>
+      <md-button class="md-warn" ng-click="feedCard.delete($event)">
+        Delete
+      </md-button>
     </div>
+  </div>
+  <span class="feed-composition">{{feedCard.feed.general.composition}}</span>
 
-  </md-card>
+  <div layout-gt-sm="row">
+    <!-- FEED BLOCK -->
+    <ul flex="30" class="feed-property" ng-repeat="block in feedCard.feedItemControls">
+        <li class="title">
+          <label class="feed-property">
+              {{block.label}}
+          </label>
+        </li>
+        <!-- FEED BLOCK CONTROL-->
+        <li class="property" ng-repeat="control in block.children">
+            <label>
+                {{control.label}}  {{control.dimension}}
+            </label>
+            <span>{{control.value}}  {{control.dimension}}</span>
+        </li>
+    </ul>
+  </div>
+</div>

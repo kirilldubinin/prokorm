@@ -1,0 +1,20 @@
+.feed-edit {
+	
+	border: 3px solid #FF9800;
+
+	.edit-block {
+		.title {
+			text-transform: uppercase;
+			display: block;
+		}
+
+		.feed-property {
+			margin-bottom: 0;
+			padding-bottom: 0;
+
+			.md-errors-spacer {
+				display: none;
+			}
+		}
+	}
+} 

@@ -23,7 +23,7 @@
                 time: '6:15',
                 mixers: [
                   {
-                    count: 2,
+                    count: 1,
                     feeds: [
                       {
                         name: 'Сенаж многолетка (2016)',
@@ -47,11 +47,24 @@
                         weight: 200
                       },
                       {
+                        name: 'Дробина пивная',
+                        source: 'Кормовая площадка',
+                        type: 'korn',
+                        color: 'yellow',
+                        weight: 220
+                      },
+                      {
                         name: 'Зерно плющенка',
                         source: 'Курган #5',
                         type: 'korn',
                         color: 'yellow',
                         weight: 650
+                      },
+                      {
+                        name: 'Cоль',
+                        source: 'Склад добавок',
+                        color: 'yellow',
+                        weight: 12
                       },
                       {
                         name: 'Вода',
@@ -60,7 +73,12 @@
                         weight: 150
                       }
                     ]
-                  }, {
+                  }
+                ]
+              }, {
+                time: '14:15',
+                mixers: [
+                  {
                     count: 1,
                     feeds: [
                       {
@@ -68,27 +86,27 @@
                         source: 'Курган #4',
                         type: 'silo',
                         color: 'green',
-                        weight: 200
+                        weight: 1100
                       },
                       {
                         name: 'Силос кукуруза (2015)',
                         source: 'Курган #5',
                         type: 'silo',
                         color: 'green',
-                        weight: 200
+                        weight: 650
                       },
                       {
                         name: 'Сено',
                         source: 'Сеносклад',
                         type: 'silo',
                         color: 'green',
-                        weight: 100
+                        weight: 200
                       },
                       {
-                        name: 'Солома',
-                        source: 'Сеносклад',
-                        type: 'silo',
-                        color: 'green',
+                        name: 'Дробина пивная',
+                        source: 'Кормовая площадка',
+                        type: 'korn',
+                        color: 'yellow',
                         weight: 220
                       },
                       {
@@ -96,37 +114,19 @@
                         source: 'Курган #5',
                         type: 'korn',
                         color: 'yellow',
-                        weight: 50
-                      }
-                    ]
-                  }
-                ]
-              }, {
-                time: '14:15',
-                mixers: [
-                  {
-                    count: 2,
-                    feeds: [
-                      {
-                        name: 'Сенаж многолетка (2016)',
-                        source: 'Курган #4',
-                        type: 'silo',
-                        color: 'green',
                         weight: 650
                       },
                       {
-                        name: 'Силос кукуруза (2015)',
-                        source: 'Курган #4',
-                        type: 'silo',
-                        color: 'green',
-                        weight: 650
-                      },
-                      {
-                        name: 'Зерно плющенка',
-                        source: 'Курган #4',
-                        type: 'korn',
+                        name: 'Cоль',
+                        source: 'Склад добавок',
                         color: 'yellow',
-                        weight: 650
+                        weight: 12
+                      },
+                      {
+                        name: 'Вода',
+                        source: '',
+                        color: 'blue',
+                        weight: 150
                       }
                     ]
                   }

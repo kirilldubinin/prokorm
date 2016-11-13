@@ -1,40 +1,48 @@
+
 <div layout="row" class="feed">
-  <md-list flex="20" class="md-dense feed-list">
-    <!--<md-subheader class="md-no-sticky">
-      Корма 
-    </md-subheader>-->
-    <md-list-item ng-repeat="feedItem in feed.feedItems" 
-      class="md-3-line feed-item"
-      ng-click="feed.onFeedClick(feedItem)" 
-      ng-class="{done: feedItem.done}">
-      <div class="md-list-item-text">
-        <div layout="row">
-          <p flex class="title">{{feedItem.name}}</p>
-          <span class="weight weight-control" ng-class="{full: !feedItem.opened}">
-            <span ng-if="feedItem.opened" class="left">800</span>
-            <span class="total">{{feedItem.weight}}</span>
-          </span>
-        </div>
-        
-        <div layout="row">
-          <p flex class="composition">{{feedItem.composition}}</p>
-          <b class="year">{{feedItem.year}}</b>  
-        </div>
-        
-        <div layout="row">
-          <p flex class="source">
-            {{feedItem.source}}
-          </p>
-          <p class="source">
-            {{feedItem.storage}}
-          </p>
-        </div>
-        
+  <md-card md-theme="default" md-theme-watch flex="20">
+    <md-list  class="md-dense feed-list">
+      <div class="list-header" layout="row">
+        <label flex class="module-name">Корма</label>
+        <md-button class="md-fab md-mini md-primary" aria-label="добавить">
+          +
+        </md-button>
+        <md-button ng-click="feed.addFake()" class="md-fab md-mini" aria-label="добавить">
+          +
+        </md-button>
       </div>
-    </md-list-item> 
-    <md-divider ></md-divider>
-  </md-list>
-  <div ui-view>
-    
-  </div>
+      <md-list-item ng-repeat="feedItem in feed.feedItems" 
+        class="md-3-line feed-item"
+        ng-click="feed.onFeedClick(feedItem)" 
+        ng-class="{done: feedItem.done}">
+        <div class="md-list-item-text">
+          <div layout="row">
+            <p flex class="title">{{feedItem.name}}</p>
+            <span class="weight weight-control" ng-class="{full: !feedItem.opened}">
+              <span ng-if="feedItem.opened" class="left">800</span>
+              <span class="total">{{feedItem.weight}}</span>
+            </span>
+          </div>
+          
+          <div layout="row">
+            <p flex class="composition">{{feedItem.composition}}</p>
+            <b class="year">{{feedItem.year}}</b>  
+          </div>
+          
+          <div layout="row">
+            <p flex class="source">
+              {{feedItem.field}}
+            </p>
+            <p class="source">
+              {{feedItem.storage}}
+            </p>
+          </div>
+          
+        </div>
+      </md-list-item> 
+      <md-divider ></md-divider>
+    </md-list>
+  </md-card>
+  <md-card md-theme="default" md-theme-watch flex="80" ui-view>
+  </md-card>
 </div>

@@ -1,71 +1,53 @@
 (function() {
-  'use strict';
-
-  angular
-    .module('mytodo')
-    .controller('FeedController', FeedController);
-
-  /** @ngInject */
-  function FeedController($window) {
-    var vm = this;
-    vm.feedItems = [
-      {
-        _id: 1,
-        name: 'Сенаж',
-        source: 'Поле: 123.11 78 ГА',
-        composition: 'Люцерна',
-        year: '2016',
-        weight: 1300,
-        opened: true,
-        storage: 'Курган #04',
-        done: false
-      }, {
-        _id: 2,
-        name: 'Силос',
-        source: 'Поле: 113.09 120 ГА',
-        composition: 'Кукуруза',
-        year: '2016',
-        weight: 2200,
-        storage: 'Траншея #07',
-        done: false
-      }, {
-        name: 'Сено',
-        source: 'Поле: 23.39 60 ГА',
-        composition: 'Козлятник',
-        year: '2016',
-        weight: 2000,
-        opened: true,
-        storage: 'Сеносклад',
-        done: false
-      }, {
-        name: 'Сенаж',
-        source: 'Поле: 21.40 89 ГА',
-        composition: 'Козлятник',
-        year: '2016',
-        weight: 600,
-        storage: 'Курган #02',
-        done: false
-      }, {
-        name: 'Силос',
-        source: 'Поле: 113.09 100 ГА',
-        composition: 'Кукуруза',
-        year: '2014',
-        weight: 2200,
-        storage: 'Курган #01',
-        done: true
-      }, {
-        name: 'Сенаж',
-        source: 'Поле: 123.11 78 ГА',
-        composition: 'Козлятник',
-        year: '2015',
-        weight: 2000,
-        storage: 'Курган #04',
-        done: true
-      }
-    ];
-
-    vm.onFeedClick = function (feedItem) {
-        $window.location.href = '#/farm/kamenskoe/feed/' + feedItem._id;
-    };
-  }
+    'use strict';
+    angular.module('mytodo')
+    .controller('FeedController', ['$window', 'feedHttp', '$state',
+        function($window, feedHttp, $state) {
+        var vm = this;
+        feedHttp.getFeeds().then(function(feeds) {
+            vm.feedItems = feeds;
+        });
+        vm.onFeedClick = function(feedItem) {
+            $state.go('farm.instance.feed.instance', { 'feedId': feedItem._id });
+        };
+        vm.addFake = function () {
+            feedHttp.saveFeed({
+                general: {
+                    name: 'Сенаж',
+                    composition: 'Козлятник',
+                    year: 2016,
+                    weight: 2200,
+                    opened: false,
+                    storage: 'Курган#04',
+                    field: '122.43',
+                    done: false
+                },
+                analysis: {
+                    dryMaterial: 38.00,
+                    protein: 12.00,
+                    digestedProtein: 44.00,
+                    fat: 0.12,
+                    cellulose: 2.34,
+                    sugar: 11.21,
+                    ash: 0.32,
+                    exchangeEnergy: 12.33,
+                    carotene: 34.11,
+                    starch: 67.00
+                },
+                harvest: {
+                    cutNumber: 1,
+                    preservative: 'Пленка вакуумная',
+                    dosage: '150гр/тонн',
+                    film: 'Пленка вакуумная',
+                    start: '11-06-2016',
+                    end: '20-06-2016'
+                },
+                feeding: {
+                    start: '01-11-2016',
+                    end: '',
+                    tonnPerDay: 2.2
+                }
+            });
+        };
+    }]);
 })();
