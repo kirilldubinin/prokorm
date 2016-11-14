@@ -1,14 +1,20 @@
 (function() {
     'use strict';
     angular.module('mytodo')
-    .controller('FeedController', ['$window', 'feedHttp', '$state',
-        function($window, feedHttp, $state) {
+    .controller('FeedController', FeedController);
+
+    function FeedController($window, feedHttp, $state, diff) {
         var vm = this;
+
         feedHttp.getFeeds().then(function(feeds) {
             vm.feedItems = feeds;
         });
         vm.onFeedClick = function(feedItem) {
-            $state.go('farm.instance.feed.instance', { 'feedId': feedItem._id });
+            if ($state.current.name === 'farm.instance.feed.diff') {
+                diff.addFeed(feedItem);
+            } else {
+                $state.go('farm.instance.feed.instance', { 'feedId': feedItem._id });
+            }
         };
         vm.addFake = function () {
             feedHttp.saveFeed({
@@ -49,5 +55,6 @@
                 }
             });
         };
-    }]);
+    }
+
 })();

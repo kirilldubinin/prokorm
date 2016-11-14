@@ -1,0 +1,35 @@
+<div class="diff">
+  <div layout="row" class="diff-title">
+    <label>Сравнение</label>
+    <!--<div>
+      <label>Выделить показатель:</label>
+      <md-radio-group ng-model="data.group1">
+        <md-radio-button value="more">Больше</md-radio-button>
+        <md-radio-button value="less">Меньше</md-radio-button>
+      </md-radio-group>
+    </div>-->
+  </div>
+  <div class="diff-dashboard" layout="row">
+    <ul class="property-list" flex="30">
+      <li class="property-name" ng-repeat="property in diff.propertiesForDiff">
+        {{property.label}}
+        <ul>
+          <li ng-repeat="child in property.children">
+            {{child.label}}    
+          </li>
+        </ul>
+      </li>
+    </ul>
+    
+    <ul class="property-value" ng-repeat="properties in diff.feedsForDiff" class="value-list">
+      <li ng-repeat="property in properties">
+        &nbsp;
+        <ul>
+          <li ng-repeat="child in property.children">
+            {{child.value}}    
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -5,11 +5,17 @@
       <div class="list-header" layout="row">
         <label flex class="module-name">Корма</label>
         <md-button class="md-fab md-mini md-primary" aria-label="добавить">
+          ||
+        </md-button>
+        <md-button class="md-fab md-mini md-primary" aria-label="добавить">
           +
         </md-button>
-        <md-button ng-click="feed.addFake()" class="md-fab md-mini" aria-label="добавить">
+        <!--<md-button ng-click="feed.addFake()" class="md-fab md-mini" aria-label="добавить">
           +
-        </md-button>
+        </md-button>-->
+        <div class="header-actions">
+          
+        </div>
       </div>
       <md-list-item ng-repeat="feedItem in feed.feedItems" 
         class="md-3-line feed-item"

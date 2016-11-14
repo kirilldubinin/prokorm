@@ -1,0 +1,28 @@
+.diff {
+	
+	.diff-dashboard {
+		ul, li {
+			list-style-type: none;
+			margin: 0;
+			padding:0;
+			font-size: 12px;
+		}
+
+		li {
+			padding: 4px 0;
+			border-bottom: 1px solid #6a6c6f;
+		}
+
+		.property-name {
+			color: #6a6c6f;
+		}
+
+		.property-value {
+			li {
+				li {
+					padding: 0 10px;
+				}
+			}
+		}
+	}
+}

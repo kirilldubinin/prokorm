@@ -48,6 +48,11 @@
         templateUrl: 'app/feed/feed.html',
         controller: 'FeedController',
         controllerAs: 'feed'
+      }).state('farm.instance.feed.diff', {
+        url: '/diff',
+        templateUrl: 'app/diff/diff.html',
+        controller: 'DiffController',
+        controllerAs: 'diff'
       }).state('farm.instance.feed.new', {
         url: '/new',
         templateUrl: 'app/feed/feedEdit.html',
