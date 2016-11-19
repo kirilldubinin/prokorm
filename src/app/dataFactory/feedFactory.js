@@ -54,5 +54,13 @@ angular.module('mytodo')
                 console.log(response);
             });
         };
+
+        feedHttp.diffFeeds = function (feedIds) {
+            return $http.post(urlBase + 'diff', {feedIds: feedIds}).then(function(response) {
+                if (response.data) {
+                    return response.data;
+                }
+            }); 
+        }
         return feedHttp;
     }]);

@@ -4,48 +4,39 @@
 
     function DiffController(feedHttp, lang, dimension, diff, _) {
     	var vm = this;
-    	vm.feedsForDiff = [];
+
+    	vm.feedsIdForDiff = [];
     	vm.propertiesForDiff = [];
 
     	diff.onAdd(function (feed) {
-    		feedHttp.getFeed(feed._id).then(function (feed) {
-    			vm.feedsForDiff.push([
-    				{
-	                  label: lang('general'),
-	                  key: 'general',
-	                  children: convertToControl(feed['general'])
-	                },
-	                {
-	                  label: lang('analysis'),
-	                  key: 'analysis',
-	                  children: convertToControl(feed['analysis'])
-	                },
-	                {
-	                  label: lang('harvest'),
-	                  key: 'harvest',
-	                  children: convertToControl(feed['harvest'])
-	                }
-    			]);
 
-    			vm.propertiesForDiff = [
-    				{
-	                  label: lang('general'),
-	                  key: 'general',
-	                  children: convertToControl(feed['general'])
-	                },
-	                {
-	                  label: lang('analysis'),
-	                  key: 'analysis',
-	                  children: convertToControl(feed['analysis'])
-	                },
-	                {
-	                  label: lang('harvest'),
-	                  key: 'harvest',
-	                  children: convertToControl(feed['harvest'])
-	                }
-    			];
+    		vm.feedsIdForDiff.push(feed._id);
 
-
+    		// request for diff
+    		feedHttp.diffFeeds(vm.feedsIdForDiff).then(function (result) {
+    			
+    			vm.diffRows = [
+			        {
+			          label: lang('general'),
+			          key: 'general',
+			          children: convertToControl(result['general'])
+			        },
+			        {
+			          label: lang('analysis'),
+			          key: 'analysis',
+			          children: convertToControl(result['analysis'])
+			        },
+			        {
+			          label: lang('harvest'),
+			          key: 'harvest',
+			          children: convertToControl(result['harvest'])
+			        },
+			        {
+			          label: lang('feeding'),
+			          key: 'feeding',
+			          children: convertToControl(result['feeding'])
+			        }
+			      ];
     		});
     	});
 
@@ -57,10 +48,10 @@
                         label: lang(key),
                         dimension: dimension(key),
                         key: key,
-                        value: value,
-                        children: (value && typeof(value) !== 'string' && typeof(value) !== 'number') ? 
-                            convertToControl(value) : 
-                            null
+                        values: value.values,
+                        children: (value && !value.values && !_.isArray(value) && !_.isNumber(value) && !_.isString(value)) ? 
+                            convertToControl(value) : null
+                            
                     }    
                 }
     		});

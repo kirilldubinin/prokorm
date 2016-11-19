@@ -10,26 +10,17 @@
     </div>-->
   </div>
   <div class="diff-dashboard" layout="row">
-    <ul class="property-list" flex="30">
-      <li class="property-name" ng-repeat="property in diff.propertiesForDiff">
-        {{property.label}}
-        <ul>
-          <li ng-repeat="child in property.children">
-            {{child.label}}    
-          </li>
-        </ul>
-      </li>
-    </ul>
-    
-    <ul class="property-value" ng-repeat="properties in diff.feedsForDiff" class="value-list">
-      <li ng-repeat="property in properties">
-        &nbsp;
-        <ul>
-          <li ng-repeat="child in property.children">
-            {{child.value}}    
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+  <ul flex class="property-list">
+    <li class="property-row" ng-repeat="property in diff.diffRows">
+      <h4 class="root-property">{{property.label}}</h4>
+      <ul ng-if="property.children">
+        <li class="property-values" ng-repeat="child in property.children" layout="row">
+          <span flex class="property-label">{{child.label}}</span>  
+          <span class="property-value" ng-repeat="value in child.values track by $index">
+            {{value}}
+          </span>  
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>

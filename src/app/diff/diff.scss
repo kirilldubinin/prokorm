@@ -10,18 +10,27 @@
 
 		li {
 			padding: 4px 0;
-			border-bottom: 1px solid #6a6c6f;
 		}
 
-		.property-name {
+		.root-property {
 			color: #6a6c6f;
 		}
 
-		.property-value {
-			li {
-				li {
-					padding: 0 10px;
-				}
+		.property-label {
+			color: #6a6c6f;
+		}
+
+		.property-values {
+			border-bottom: 1px solid #eee;
+
+			&:hover {
+				border-bottom: 1px solid #333;			
+			}
+			.property-value {
+				color: #333;
+			    /* padding: 0 20px; */
+			    min-width: 60px;
+			    text-align: right;
 			}
 		}
 	}
