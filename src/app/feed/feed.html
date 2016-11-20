@@ -4,10 +4,13 @@
     <md-list  class="md-dense feed-list">
       <div class="list-header" layout="row">
         <label flex class="module-name">Корма</label>
-        <md-button class="md-fab md-mini md-primary" aria-label="добавить">
+        <md-button ng-click="feed.goToHome()" ng-if="feed.isDiffMode" class="md-fab md-mini md-primary">
+          <
+        </md-button>
+        <md-button ng-click="feed.goToDiff()" ng-if="!feed.isDiffMode" class="md-fab md-mini md-primary" aria-label="сравнить">
           ||
         </md-button>
-        <md-button class="md-fab md-mini md-primary" aria-label="добавить">
+        <md-button ng-if="!feed.isDiffMode" class="md-fab md-mini md-primary" aria-label="добавить">
           +
         </md-button>
         <!--<md-button ng-click="feed.addFake()" class="md-fab md-mini" aria-label="добавить">
@@ -20,7 +23,7 @@
       <md-list-item ng-repeat="feedItem in feed.feedItems" 
         class="md-3-line feed-item"
         ng-click="feed.onFeedClick(feedItem)" 
-        ng-class="{done: feedItem.done}">
+        ng-class="{done: feedItem.done, selected: feedItem === feed.selectedItem}">
         <div class="md-list-item-text">
           <div layout="row">
             <p flex class="title">{{feedItem.name}}</p>

@@ -1,6 +1,6 @@
-<div class="diff">
+<div class="diff-card">
   <div layout="row" class="diff-title">
-    <label>Сравнение</label>
+    <h2>Сравнение</h2>
     <!--<div>
       <label>Выделить показатель:</label>
       <md-radio-group ng-model="data.group1">
@@ -15,7 +15,7 @@
       <h4 class="root-property">{{property.label}}</h4>
       <ul ng-if="property.children">
         <li class="property-values" ng-repeat="child in property.children" layout="row">
-          <span flex class="property-label">{{child.label}}</span>  
+          <span flex="20" class="property-label">{{child.label}}</span>  
           <span class="property-value" ng-repeat="value in child.values track by $index">
             {{value}}
           </span>  

@@ -6,6 +6,7 @@
 
 		.feed-name {
 			margin-right: 30px;
+    		margin-top: 10px;
 			b {
 				font-size: 22px;
 			}
@@ -18,11 +19,8 @@
 	}
 
 	.feed-composition {
-		margin-top: -16px;
-	    margin-bottom: 30px;
-	    font-size: 14px;
-	    /* font-weight: 600; */
-	    color: #3F51B5;
+		padding-left: 2px;
+    	font-size: 14px;
 	}
 
 	.weight-wrapper {
@@ -39,7 +37,7 @@
 		.title {
 			padding-bottom: 4px;
 			font-weight: 600;
-			label {
+			h4 {
 				width: 140px;
 				display: inline-block;
 				text-align: right;

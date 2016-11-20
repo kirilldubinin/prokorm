@@ -10,7 +10,23 @@
 
     	diff.onAdd(function (feed) {
 
-    		vm.feedsIdForDiff.push(feed._id);
+    		var existing = _.remove(vm.feedsIdForDiff, function (id) {
+				return id === feed._id;
+			});
+
+    		if (!existing.length) {
+    			vm.feedsIdForDiff.push(feed._id);
+    		}
+
+    		updateDiffRows();
+    	});
+
+    	function updateDiffRows() {
+
+    		if (!vm.feedsIdForDiff.length) {
+    			vm.diffRows = [];
+    			return;
+    		}
 
     		// request for diff
     		feedHttp.diffFeeds(vm.feedsIdForDiff).then(function (result) {
@@ -38,7 +54,7 @@
 			        }
 			      ];
     		});
-    	});
+    	}
 
     	function convertToControl (item) {
 

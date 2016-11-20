@@ -1,5 +1,5 @@
-.diff {
-	
+.diff-card {
+	padding: 20px;
 	.diff-dashboard {
 		ul, li {
 			list-style-type: none;
@@ -22,13 +22,12 @@
 
 		.property-values {
 			border-bottom: 1px solid #eee;
-
 			&:hover {
-				border-bottom: 1px solid #333;			
+						
 			}
 			.property-value {
 				color: #333;
-			    /* padding: 0 20px; */
+			    padding: 0 20px;
 			    min-width: 60px;
 			    text-align: right;
 			}

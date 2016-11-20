@@ -38,6 +38,11 @@
 		font-size: 11px;
 
 		.feed-item {
+
+			&.selected {
+				background-color: #90CAF9;
+			}
+
 			cursor: pointer;
 			background-color: #fff;
 			min-height: 68px;

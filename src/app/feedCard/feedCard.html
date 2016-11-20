@@ -1,7 +1,10 @@
 <div class="feed-card">
   
   <div layout="row" class="feed-title">
-    <p class="feed-name">{{feedCard.feed.general.name}} <b>{{feedCard.feed.general.year}}</b></p>
+    <h2 class="feed-name">{{feedCard.feed.general.name}} 
+      <b>{{feedCard.feed.general.year}}</b>
+      <div class="feed-composition">{{feedCard.feed.general.composition}}</div>
+    </h2>
     <div class="weight-wrapper"> 
       <span class="weight-control">
         <span class="left">800</span>
@@ -20,15 +23,13 @@
       </md-button>
     </div>
   </div>
-  <span class="feed-composition">{{feedCard.feed.general.composition}}</span>
-
   <div layout-gt-sm="row">
     <!-- FEED BLOCK -->
     <ul flex="30" class="feed-property" ng-repeat="block in feedCard.feedItemControls">
         <li class="title">
-          <label class="feed-property">
+          <h4 class="feed-property">
               {{block.label}}
-          </label>
+          </h4>
         </li>
         <!-- FEED BLOCK CONTROL-->
         <li class="property" ng-repeat="control in block.children">

@@ -3,16 +3,23 @@
     angular.module('mytodo')
     .controller('FeedController', FeedController);
 
-    function FeedController($window, feedHttp, $state, diff) {
+    function FeedController($scope, $window, feedHttp, $state, diff) {
         var vm = this;
 
         feedHttp.getFeeds().then(function(feeds) {
             vm.feedItems = feeds;
         });
+        vm.goToHome = function() {
+            $state.go('farm.instance.feed');
+        };
+        vm.goToDiff = function() {
+            $state.go('farm.instance.feed.diff');
+        };
         vm.onFeedClick = function(feedItem) {
-            if ($state.current.name === 'farm.instance.feed.diff') {
+            if (vm.isDiffMode) {
                 diff.addFeed(feedItem);
             } else {
+                vm.selectedItem = feedItem;
                 $state.go('farm.instance.feed.instance', { 'feedId': feedItem._id });
             }
         };
@@ -55,6 +62,10 @@
                 }
             });
         };
+
+        $scope.$on('$stateChangeSuccess', function (oldState, newState) {
+            vm.isDiffMode = newState.name === 'farm.instance.feed.diff';
+        });
     }
 
 })();
