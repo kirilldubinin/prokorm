@@ -4,32 +4,24 @@
 
     function DiffController(feedHttp, lang, dimension, diff, _) {
     	var vm = this;
-
-    	vm.feedsIdForDiff = [];
     	vm.propertiesForDiff = [];
 
-    	diff.onAdd(function (feed) {
+        // if diff.getFeeds is not empty
+        updateDiffRows(diff.getFeeds());
 
-    		var existing = _.remove(vm.feedsIdForDiff, function (id) {
-				return id === feed._id;
-			});
+    	diff.onChange(updateDiffRows);
+    	function updateDiffRows(feedsForDiff) {
 
-    		if (!existing.length) {
-    			vm.feedsIdForDiff.push(feed._id);
-    		}
-
-    		updateDiffRows();
-    	});
-
-    	function updateDiffRows() {
-
-    		if (!vm.feedsIdForDiff.length) {
+    		if (!feedsForDiff.length) {
     			vm.diffRows = [];
     			return;
     		}
 
     		// request for diff
-    		feedHttp.diffFeeds(vm.feedsIdForDiff).then(function (result) {
+            var ids = _.map(feedsForDiff, function (f) {
+                return f._id;
+            });
+    		feedHttp.diffFeeds(ids).then(function (result) {
     			
     			vm.diffRows = [
 			        {

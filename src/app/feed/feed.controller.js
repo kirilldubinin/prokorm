@@ -9,15 +9,27 @@
         feedHttp.getFeeds().then(function(feeds) {
             vm.feedItems = feeds;
         });
+
+        vm.inDiff = diff.inDiff;
+
+        vm.goToAdd = function() {
+            vm.selectedItem = null;
+            diff.clear();
+            $state.go('farm.instance.feed.new');
+        };
         vm.goToHome = function() {
+            vm.selectedItem = null;
+            diff.clear();
             $state.go('farm.instance.feed');
         };
         vm.goToDiff = function() {
+            vm.selectedItem = null;
+            diff.clear();
             $state.go('farm.instance.feed.diff');
         };
         vm.onFeedClick = function(feedItem) {
             if (vm.isDiffMode) {
-                diff.addFeed(feedItem);
+                diff.toggleFeed(feedItem);
             } else {
                 vm.selectedItem = feedItem;
                 $state.go('farm.instance.feed.instance', { 'feedId': feedItem._id });
@@ -63,9 +75,15 @@
             });
         };
 
+        $scope.$on('stateChangeStart', function (oldState, newState) {
+
+        });
+
         $scope.$on('$stateChangeSuccess', function (oldState, newState) {
             vm.isDiffMode = newState.name === 'farm.instance.feed.diff';
+            if (vm.isDiffMode) {
+                vm.selectedItem = null;
+            }
         });
     }
-
 })();

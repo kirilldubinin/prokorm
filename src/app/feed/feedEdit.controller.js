@@ -69,6 +69,10 @@
                   label: lang('harvest'),
                   key: 'harvest',
                   children: convertToControl(feed['harvest'])
+                }, {
+                  label: lang('feeding'),
+                  key: 'feeding',
+                  children: convertToControl(feed['feeding'])
                 }
               ];
         });

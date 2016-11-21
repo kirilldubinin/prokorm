@@ -42,7 +42,7 @@ angular.module('mytodo')
         };  
 
         feedHttp.getEmptyFeed = function () {
-            return $http.get(urlBase + 'empty').then(function(response) {
+            return $http.post(urlBase + 'new').then(function(response) {
                 if (response.data) {
                     return response.data;
                 }

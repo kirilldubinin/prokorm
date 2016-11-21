@@ -5,7 +5,7 @@
     .controller('FeedCardController', FeedCardController);
 
   /** @ngInject */
-  function FeedCardController($mdDialog, $stateParams, $state, feedHttp, lang, dimension, _) {
+  function FeedCardController($mdDialog, $stateParams, $state, feedHttp, lang, dimension, diff, _) {
     var vm = this;
     var feedId = $stateParams.feedId;
 
@@ -13,9 +13,13 @@
       return;
     }
 
+    vm.diff = function () {
+      $state.go('farm.instance.feed.diff');
+      diff.toggleFeed(vm.feed);
+    }
+
     vm.edit = function () {
       $state.go('farm.instance.feed.edit', { 'feedId': feedId });
-      //$window.location.href = url.format('feed/' + feedId + '/edit');
     };
 
     vm.delete = function (ev) {

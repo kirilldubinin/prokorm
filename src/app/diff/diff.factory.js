@@ -1,10 +1,26 @@
-function DiffFactory() {
+function DiffFactory(_) {
     
     var _onAdd = angular.noop;
     var _onClear = angular.noop;
+    var _onChange = angular.noop;
 
     var feedsForDiff = [];
     return {
+        inDiff: function (feed) {
+            return _.some(feedsForDiff, function (f) {
+                return f === feed;
+            });
+        },
+        toggleFeed: function (feed) {
+            var existing = _.remove(feedsForDiff, function (f) {
+                return f._id === feed._id;
+            });
+
+            if (!existing.length) {
+                feedsForDiff.push(feed);
+            }
+            _onChange(feedsForDiff);
+        },
     	getFeeds: function () {
     		return feedsForDiff;
     	},
@@ -14,7 +30,7 @@ function DiffFactory() {
     	},
     	clear: function () {
     		feedsForDiff = [];
-    		_onClear();
+    		_onChange(feedsForDiff);
     	},
     	_onClear: function (fn) {
     		if (angular.isFunction(fn)) {
@@ -25,7 +41,12 @@ function DiffFactory() {
     		if (angular.isFunction(fn)) {
     			_onAdd = fn;
     		}
-    	}
+    	},
+        onChange: function (fn) {
+            if (angular.isFunction(fn)) {
+                _onChange = fn;
+            }    
+        }
     }
 }
 // Register factory

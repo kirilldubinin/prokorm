@@ -23,7 +23,8 @@
 		.property-values {
 			border-bottom: 1px solid #eee;
 			&:hover {
-						
+				background-color: #BBDEFB;
+				border-bottom: 1px solid #BBDEFB;	
 			}
 			.property-value {
 				color: #333;

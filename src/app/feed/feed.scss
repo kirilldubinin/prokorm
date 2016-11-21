@@ -40,7 +40,11 @@
 		.feed-item {
 
 			&.selected {
-				background-color: #90CAF9;
+				background-color: #BBDEFB;
+			}
+
+			&.inDiff {
+				background-color: #BBDEFB;	
 			}
 
 			cursor: pointer;
