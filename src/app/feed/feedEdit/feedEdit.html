@@ -1,0 +1,58 @@
+<div class="feed-edit" layout-padding="" layout="column">
+
+    <!-- HEADER -->
+    <div class="feed-edit-header" layout="row">
+        <div flex="{{block.width}}" ng-repeat="block in feedEdit.feedItemSections">
+            <label class="title">
+                {{block.label}}
+            </label>
+            <span ng-if="block.label === 'analysis'" class="buttons-group">
+                <span class="button">
+                  <md-button>1</md-button>
+                </span>
+                <span class="button">
+                  <md-button>+</md-button>
+                </span>
+            </span>
+        </div>
+        
+        <!-- FEED BLOCK CONTROL
+        <div class="edit-block-sub-section" ng-repeat="subSection in block.subSections">
+            <md-input-container class="feed-property" ng-repeat="control in subSection">
+                <label ng-click="onSelfExplanationLinkClick(control.key)" class="self-explanation-link">
+                    {{control.label}}  {{control.dimension}}
+                </label>
+                <input ng-model="feedEdit.feedItem[block.key][control.key]"/>
+            </md-input-container>    
+        </div>-->
+    </div>
+
+    <!-- CONTENT -->
+    <div flex class="feed-edit-content" layout="row">
+        <diV  flex="{{block.width}}" ng-repeat="block in feedEdit.feedItemSections">
+            <div class="edit-block-sub-section" ng-repeat="subSection in block.subSections">
+                <md-input-container class="feed-property" ng-repeat="control in subSection">
+                    <label ng-show="control.itemToBind[control.key] !== false && control.itemToBind[control.key] !== true" class="self-explanation-link">
+                        {{control.label}}  {{control.dimension}}
+                    </label>
+                    
+                    <md-checkbox ng-show="control.itemToBind[control.key] === false || control.itemToBind[control.key] === true" ng-model="control.itemToBind[control.key]" aria-label="Checkbox 1">
+                        {{control.label}}
+                    </md-checkbox>
+
+                    <input ng-show="control.itemToBind[control.key] !== false && control.itemToBind[control.key] !== true" ng-model="control.itemToBind[control.key]"/>
+                </md-input-container>    
+            </div>
+        </diV>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="feed-edit-actions" layout="row" layout-align="center left" layout-sm="column" layout-wrap="">
+        <md-button class="md-raised" ng-click="feedEdit.cancel()">
+            Cancel
+        </md-button>
+        <md-button class="md-raised md-primary" ng-click="feedEdit.save()">
+            Save
+        </md-button>
+    </div>
+</div>

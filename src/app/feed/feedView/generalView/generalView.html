@@ -1,0 +1,13 @@
+<ul class="feed-property">
+    <li class="title">
+      <h4 class="feed-property">
+          Основные
+      </h4>
+    </li>
+    <li class="property" ng-repeat="control in generalView.properties">
+        <label>
+            {{control.label}}  {{control.dimension}}
+        </label>
+        <span>{{control.value}}  {{control.dimension}}</span>
+    </li>
+</ul>

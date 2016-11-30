@@ -55,12 +55,12 @@
         controllerAs: 'diff'
       }).state('farm.instance.feed.new', {
         url: '/new',
-        templateUrl: 'app/feed/feedEdit.html',
+        templateUrl: 'app/feed/feedEdit/feedEdit.html',
         controller: 'FeedEditController',
         controllerAs: 'feedEdit'
       }).state('farm.instance.feed.edit', {
         url: '/:feedId/edit',
-        templateUrl: 'app/feed/feedEdit.html',
+        templateUrl: 'app/feed/feedEdit/feedEdit.html',
         controller: 'FeedEditController',
         controllerAs: 'feedEdit',
         params: {
@@ -68,9 +68,9 @@
         }
       }).state('farm.instance.feed.instance', {
         url: '/:feedId',
-        templateUrl: 'app/feedCard/feedCard.html',
-        controller: 'FeedCardController',
-        controllerAs: 'feedCard',
+        templateUrl: 'app/feed/feedView/feedView.html',
+        controller: 'FeedViewController',
+        controllerAs: 'feedView',
         params: {
           feedId: undefined
         }

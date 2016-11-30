@@ -1,0 +1,52 @@
+<div class="feed-card">
+  
+  <div layout="row" class="feed-title">
+    <h2 class="feed-name">{{feedView.feed.general.name}} 
+      <b>{{feedView.feed.general.year}}</b>
+      <div class="feed-composition">{{feedView.feed.general.composition}}</div>
+    </h2>
+    <div class="weight-wrapper"> 
+      <span class="weight-control">
+        <span class="left">800</span>
+        <span class="total">{{feedView.feed.general.weight}}</span>
+      </span>
+    </div>
+    <div class="actions" flex>
+      <md-button class="md-raised" ng-click="feedView.diff()">
+        Diff
+      </md-button>
+      <md-button class="md-raised" ng-click="feedView.edit()">
+        Edit
+      </md-button>
+      <md-button class="md-warn" ng-click="feedView.delete($event)">
+        Delete
+      </md-button>
+    </div>
+  </div>
+  <div layout-gt-sm="row">
+    <general-view flex="30" general="feedView.feed.general"></general-view>
+    <analysis-view flex analysis="feedView.feed.analysis"></analysis-view>
+    <!-- FEED BLOCK 
+    <ul flex="30" class="feed-property" ng-repeat="block in feedView.feedItemControls">
+        <li class="title">
+          <h4 class="feed-property">
+              {{block.label}}
+              <md-button class="md-fab md-mini md-primary">
+                1
+              </md-button>
+              <md-button class="md-fab md-mini md-primary">
+                2
+              </md-button>
+          </h4>
+
+        </li>
+        <!-- FEED BLOCK CONTROL
+        <li class="property" ng-repeat="control in block.children">
+            <label>
+                {{control.label}}  {{control.dimension}}
+            </label>
+            <span>{{control.value}}  {{control.dimension}}</span>
+        </li>
+    </ul>-->
+  </div>
+</div>

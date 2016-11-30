@@ -2,10 +2,10 @@
   'use strict';
   angular
     .module('mytodo')
-    .controller('FeedCardController', FeedCardController);
+    .controller('FeedViewController', FeedViewController);
 
   /** @ngInject */
-  function FeedCardController($mdDialog, $stateParams, $state, feedHttp, lang, dimension, diff, _) {
+  function FeedViewController($mdDialog, $stateParams, $state, feedHttp, lang, dimension, diff, _) {
     var vm = this;
     var feedId = $stateParams.feedId;
 
