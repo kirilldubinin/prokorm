@@ -15,16 +15,6 @@
                 </span>
             </span>
         </div>
-        
-        <!-- FEED BLOCK CONTROL
-        <div class="edit-block-sub-section" ng-repeat="subSection in block.subSections">
-            <md-input-container class="feed-property" ng-repeat="control in subSection">
-                <label ng-click="onSelfExplanationLinkClick(control.key)" class="self-explanation-link">
-                    {{control.label}}  {{control.dimension}}
-                </label>
-                <input ng-model="feedEdit.feedItem[block.key][control.key]"/>
-            </md-input-container>    
-        </div>-->
     </div>
 
     <!-- CONTENT -->
@@ -32,15 +22,18 @@
         <diV  flex="{{block.width}}" ng-repeat="block in feedEdit.feedItemSections">
             <div class="edit-block-sub-section" ng-repeat="subSection in block.subSections">
                 <md-input-container class="feed-property" ng-repeat="control in subSection">
-                    <label ng-show="control.itemToBind[control.key] !== false && control.itemToBind[control.key] !== true" class="self-explanation-link">
+                    
+                    <!-- BOOLEAN -->                    
+                    <md-switch ng-show="control.isBoolean" class="md-primary" ng-model="control.itemToBind[control.key]">
+                        {{control.label}} : {{ control.itemToBind[control.key] ? 'Да' : 'Нет' }}
+                    </md-switch>
+
+                    <!-- INPUT -->
+                    <label ng-show="!control.isBoolean" class="self-explanation-link">
                         {{control.label}}  {{control.dimension}}
                     </label>
-                    
-                    <md-checkbox ng-show="control.itemToBind[control.key] === false || control.itemToBind[control.key] === true" ng-model="control.itemToBind[control.key]" class="md-primary">
-                        {{control.label}}
-                    </md-checkbox>
+                    <input ng-show="!control.isBoolean" ng-model="control.itemToBind[control.key]"/>
 
-                    <input ng-show="control.itemToBind[control.key] !== false && control.itemToBind[control.key] !== true" ng-model="control.itemToBind[control.key]"/>
                 </md-input-container>    
             </div>
         </diV>

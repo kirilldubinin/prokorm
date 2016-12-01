@@ -1,5 +1,4 @@
-<div class="feed-card">
-  
+<div class="feed-view">
   <div layout="row" class="feed-title">
     <h2 class="feed-name">{{feedView.feed.general.name}} 
       <b>{{feedView.feed.general.year}}</b>
@@ -23,9 +22,42 @@
       </md-button>
     </div>
   </div>
-  <div layout-gt-sm="row">
-    <general-view flex="30" general="feedView.feed.general"></general-view>
-    <analysis-view flex analysis="feedView.feed.analysis"></analysis-view>
+
+    <!-- HEADER -->
+    <div class="feed-view-header" layout="row">
+      <div flex="{{block.width}}" ng-repeat="block in feedView.feedItemSections">
+          <label class="title">
+              {{block.label}}
+          </label>
+          <md-switch ng-if="block.key === 'analysis'" class="md-primary" ng-model="control.itemToBind[control.key]">
+              Расчитать на: {{ control.itemToBind[control.key] ? 'Натуральную влажность' : 'Сухое вещество' }}
+          </md-switch>
+      </div>
+    </div>  
+
+    <!-- CONTENT -->
+    <div flex class="feed-view-content" layout="row">
+        <diV flex="{{block.width}}" ng-repeat="block in feedView.feedItemSections">
+            <ul class="feed-properties" ng-class="block.key" ng-repeat="subSection in block.subSections">
+               <li class="property" ng-repeat="control in subSection">
+                <label>
+                    {{control.label}}  {{control.dimension}}
+                </label>
+                <span>{{control.value}}</span>
+            </li>   
+            </ul>
+        </diV>
+    </div>  
+        <!-- FEED BLOCK CONTROL
+        <div class="edit-block-sub-section" ng-repeat="subSection in block.subSections">
+            <md-input-container class="feed-property" ng-repeat="control in subSection">
+                <label ng-click="onSelfExplanationLinkClick(control.key)" class="self-explanation-link">
+                    {{control.label}}  {{control.dimension}}
+                </label>
+                <input ng-model="feedEdit.feedItem[block.key][control.key]"/>
+            </md-input-container>    
+        </div>-->
+    
     <!-- FEED BLOCK 
     <ul flex="30" class="feed-property" ng-repeat="block in feedView.feedItemControls">
         <li class="title">
@@ -48,5 +80,4 @@
             <span>{{control.value}}  {{control.dimension}}</span>
         </li>
     </ul>-->
-  </div>
 </div>

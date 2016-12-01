@@ -41,27 +41,29 @@
 
     feedHttp.getFeed(feedId).then(function (feed) {
       vm.feed = feed;
-      vm.feedItemControls = [
-        {
-          label: lang('general'),
-          key: 'general',
-          children: convertToControl(feed['general'])
-        },
-        {
+      vm.feedItemSections = [{
+          width: 40,
           label: lang('analysis'),
           key: 'analysis',
-          children: convertToControl(feed['analysis'])
-        },
-        {
+          subSections: _.map(feed['analysis'], function (analys) {
+              return convertToControl(analys);
+          })
+      }, {
+          width: 20,
+          label: lang('general'),
+          key: 'general',
+          subSections: [convertToControl(feed['general'])]
+      }, {
+          width: 20,
           label: lang('harvest'),
           key: 'harvest',
-          children: convertToControl(feed['harvest'])
-        },{
+          subSections: [convertToControl(feed['harvest'])]
+      }, {
+          width: 20,
           label: lang('feeding'),
           key: 'feeding',
-          children: convertToControl(feed['feeding'])
-        }
-      ];
+          subSections: [convertToControl(feed['feeding'])]
+      }];
     });
 
     function convertToControl(item) {

@@ -1,6 +1,7 @@
 function LangFactory() {
     
     var langObj = {
+        analysis: 'Анализы',
         general: 'Основные',
         composition: 'Состав',
         year: 'Год',
@@ -15,13 +16,15 @@ function LangFactory() {
         removeFeedConfirmDialogContent: 'Удаленный корм нельзя будет восстановить.',
 
         // general
+        date: 'Дата',
 
         // harvest
+        harvest: 'Заготовка',
         cutNumber: 'Номер укоса',
 
         // analysis
         number: 'Номер',
-        isNaturalWet: 'Натуральная влажность',
+        isNaturalWet: 'Анализ на натуральную влажность',
         milkAcid: 'Молочная кислота',
         aceticAcid: 'Уксусная кислота',
         oilAcid: 'Масляная кислота',
@@ -31,7 +34,10 @@ function LangFactory() {
         vcos: 'Переварримость органического вещества, VCOS',
         fos: 'Ферментируемое органическое вещество, FOS',
         nel: 'Чистая энергия на лактацию/молоко, NEL',
-        nelvc: 'NEL-VC'
+        nelvc: 'NEL-VC',
+
+        //feeding
+        feeding: 'Кормление'
     };
 
     return function (key) {

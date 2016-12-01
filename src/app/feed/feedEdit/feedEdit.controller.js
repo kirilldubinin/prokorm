@@ -37,8 +37,6 @@
         });
 
         vm.save = function() {
-            console.log(vm.feedItem);
-            return;
             feedHttp.saveFeed(vm.feedItem).then(function() {
                 $state.go('farm.instance.feed.instance', {
                     'feedId': feedId
@@ -64,7 +62,9 @@
         function convertToControl(item) {
             return _.map(item, function(value, key) {
                 if (item.hasOwnProperty(key)) {
+
                     return {
+                        isBoolean: value === true || value === false,
                         itemToBind: item,
                         label: lang(key),
                         dimension: dimension(key),
