@@ -14,7 +14,14 @@ function LangFactory() {
         removeFeedConfirmDialogTitle: 'Удалить этот корм ?',
         removeFeedConfirmDialogContent: 'Удаленный корм нельзя будет восстановить.',
 
+        // general
+
+        // harvest
+        cutNumber: 'Номер укоса',
+
         // analysis
+        number: 'Номер',
+        isNaturalWet: 'Натуральная влажность',
         milkAcid: 'Молочная кислота',
         aceticAcid: 'Уксусная кислота',
         oilAcid: 'Масляная кислота',
