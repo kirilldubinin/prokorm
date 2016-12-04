@@ -21,6 +21,11 @@
 	.feed-edit-content {
 		overflow: auto;
 		.feed-property {
+
+			&.booleanProperty {
+				margin: 0;
+			}
+
 			width: 90%;
 			.md-errors-spacer {
 				display: none;

@@ -11,6 +11,9 @@
       </span>
     </div>
     <div class="actions" flex>
+      <md-button class="md-raised" ng-click="feedView.copy()">
+        Copy
+      </md-button>
       <md-button class="md-raised" ng-click="feedView.diff()">
         Diff
       </md-button>
@@ -29,55 +32,30 @@
           <label class="title">
               {{block.label}}
           </label>
-          <md-switch ng-if="block.key === 'analysis'" class="md-primary" ng-model="control.itemToBind[control.key]">
-              Расчитать на: {{ control.itemToBind[control.key] ? 'Натуральную влажность' : 'Сухое вещество' }}
-          </md-switch>
       </div>
     </div>  
 
     <!-- CONTENT -->
     <div flex class="feed-view-content" layout="row">
         <diV flex="{{block.width}}" ng-repeat="block in feedView.feedItemSections">
-            <ul class="feed-properties" ng-class="block.key" ng-repeat="subSection in block.subSections">
-               <li class="property" ng-repeat="control in subSection">
+            <ul class="feed-properties" ng-class="block.key" >
+               <li class="property" ng-repeat="control in block.controls">
                 <label>
                     {{control.label}}  {{control.dimension}}
                 </label>
-                <span>{{control.value}}</span>
+
+                <!-- SINGLE VALUE -->
+                <span ng-if="!control.values">{{control.value}}</span>
+
+                <!-- MULTI VALUES -->
+                <span ng-if="control.values && control.key !== 'isNaturalWet'"" ng-repeat="value in control.values track by $index">{{value}}</span>
+                
+                <!-- DRY Control -->
+                <md-checkbox ng-if="control.key === 'isNaturalWet'" ng-repeat="value in control.values track by $index" class="md-primary" ng-model="value">
+                    ({{ value ? 'Да' : 'Нет' }})
+                </md-checkbox>
             </li>   
             </ul>
         </diV>
-    </div>  
-        <!-- FEED BLOCK CONTROL
-        <div class="edit-block-sub-section" ng-repeat="subSection in block.subSections">
-            <md-input-container class="feed-property" ng-repeat="control in subSection">
-                <label ng-click="onSelfExplanationLinkClick(control.key)" class="self-explanation-link">
-                    {{control.label}}  {{control.dimension}}
-                </label>
-                <input ng-model="feedEdit.feedItem[block.key][control.key]"/>
-            </md-input-container>    
-        </div>-->
-    
-    <!-- FEED BLOCK 
-    <ul flex="30" class="feed-property" ng-repeat="block in feedView.feedItemControls">
-        <li class="title">
-          <h4 class="feed-property">
-              {{block.label}}
-              <md-button class="md-fab md-mini md-primary">
-                1
-              </md-button>
-              <md-button class="md-fab md-mini md-primary">
-                2
-              </md-button>
-          </h4>
-
-        </li>
-        <!-- FEED BLOCK CONTROL
-        <li class="property" ng-repeat="control in block.children">
-            <label>
-                {{control.label}}  {{control.dimension}}
-            </label>
-            <span>{{control.value}}  {{control.dimension}}</span>
-        </li>
-    </ul>-->
+    </div> 
 </div>

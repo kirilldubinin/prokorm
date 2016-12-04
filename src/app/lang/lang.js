@@ -23,8 +23,8 @@ function LangFactory() {
         cutNumber: 'Номер укоса',
 
         // analysis
+        isNaturalWet: 'Натуральная влажность',
         number: 'Номер',
-        isNaturalWet: 'Анализ на натуральную влажность',
         milkAcid: 'Молочная кислота',
         aceticAcid: 'Уксусная кислота',
         oilAcid: 'Масляная кислота',
