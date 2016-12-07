@@ -2,34 +2,39 @@
 
 	.weight-control {
 		width: auto;
-	    /* padding: 2px 4px; */
-	    border: 2px solid #FF9800;
+	    border: 2px solid #009688;
 	    height: 26px;
 	    border-radius: 3px;
 		font-size: 22px;
-		.left {
+
+		.balance {
+			display: none;
 		    color: #FF9800;
 		    padding: 2px 4px;
 		    font-weight: 600;
 		}
 
 		.total {
-		    background-color: #FF9800;
+		    background-color: #009688;
 		    color: #fff;
 		    padding: 2px 4px;
 		    font-weight: 600;
 		}
 
-		&.full {
+		&.opened {
 
-			border-color: #009688;
+			.balance {
+				display: inline;
+			}
+
+			border-color: #FF9800;
 			.left {
 				display: none;
-				color: #009688;
+				color: #FF9800;
 			}
 
 			.total {
-			    background-color: #009688;
+			    background-color: #FF9800;
 			}
 		}
 	}

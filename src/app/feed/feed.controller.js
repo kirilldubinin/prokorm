@@ -83,6 +83,10 @@
             vm.isDiffMode = newState.name === 'farm.instance.feed.diff';
             if (vm.isDiffMode) {
                 vm.selectedItem = null;
+            } else if (newState.name === 'farm.instance.feed') {
+                feedHttp.getFeeds().then(function(feeds) {
+                    vm.feedItems = feeds;
+                });
             }
         });
     }

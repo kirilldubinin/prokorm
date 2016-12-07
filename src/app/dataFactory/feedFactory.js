@@ -30,9 +30,20 @@ angular.module('mytodo')
             var methode = feed._id ? 'put' : 'post';
             var url = feed._id ? (urlBase + feed._id) : urlBase
             return $http[methode](url, feed).then(function(response) {
-                console.log(response);
-            });
+                if (response.data) {
+                    return response.data;
+                }
+            });    
         };
+
+        feedHttp.getFeedView = function (feedId) {
+            return $http.get(urlBase + feedId + '/view').then(function(response) {
+                if (response.data) {
+                    return response.data;
+                }
+            });    
+        };
+
         feedHttp.getFeed = function (feedId) {
             return $http.get(urlBase + feedId).then(function(response) {
                 if (response.data) {
@@ -50,9 +61,7 @@ angular.module('mytodo')
         }
 
         feedHttp.deleteFeed = function (feedId) {
-            return $http.delete(urlBase + feedId).then(function(response) {
-                console.log(response);
-            });
+            return $http.delete(urlBase + feedId);
         };
 
         feedHttp.diffFeeds = function (feedIds) {

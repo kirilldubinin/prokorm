@@ -28,10 +28,13 @@
         };
  
         vm.save = function() {
-            feedHttp.saveFeed(vm.feedItem).then(function() {
-                $state.go('farm.instance.feed.instance', {
-                    'feedId': feedId
-                });
+            feedHttp.saveFeed(vm.feedItem).then(function(response) {
+                if (response.message === 'OK') {
+                    $state.go('farm.instance.feed.instance', {
+                        'feedId': response.id
+                    });    
+                }
+                
             });
         };
         vm.cancel = function() {

@@ -21,6 +21,9 @@ function LangFactory() {
         // harvest
         harvest: 'Заготовка',
         cutNumber: 'Номер укоса',
+        preservative: 'Консервант',
+        dosage: 'Дозировка',
+        film: 'Пленка',
 
         // analysis
         isNaturalWet: 'Натуральная влажность',
