@@ -18,19 +18,26 @@
     <!-- CONTENT -->
     <div flex class="feed-edit-content" layout="row">
         <diV flex="{{block.width}}" ng-repeat="block in feedEdit.feedItemSections" layout="row">
+
             <div ng-if="block.key !== 'analysis' || feedEdit.currentAnalysis === subSection.initialItem" flex class="edit-block-sub-section" ng-repeat="subSection in block.subSections">
-                <md-input-container class="feed-property" ng-repeat="control in subSection.controls" ng-class="{booleanProperty : control.isBoolean}">
+
+                <md-input-container class="feed-property" ng-repeat="(key, data) in subSection.controls" ng-class="{booleanProperty : data.isBoolean}">
                     
                     <!-- BOOLEAN -->  
-                    <md-checkbox ng-show="control.isBoolean" class="md-primary" ng-model="control.itemToBind[control.key]">
-                        {{control.label}}: ({{ control.itemToBind[control.key] ? 'Да' : 'Нет' }})
+                    <md-checkbox ng-if="data.isBoolean" class="md-primary" ng-model="data.itemToBind[data.key]">
+                        {{data.label}}: ({{ subSection.initialItem[data.key] ? 'Да' : 'Нет' }})
                     </md-checkbox>                  
 
-                    <!-- INPUT -->
-                    <label ng-show="!control.isBoolean" class="self-explanation-link">
-                        {{control.label}}  {{control.dimension}}
+                    <!-- LABEL -->
+                    <label ng-if="!data.isBoolean" class="self-explanation-link">
+                        {{data.label}}  {{data.dimension}}
                     </label>
-                    <input ng-show="!control.isBoolean" ng-model="control.itemToBind[control.key]"/>
+
+                    <!-- INPUT NUMBER -->
+                    <input ng-if="!data.isBoolean && data.isNumber" type="number" ng-model="subSection.initialItem[data.key]"/>
+
+                    <!-- INPUT -->
+                    <input ng-if="!data.isBoolean && !data.isNumber" ng-model="subSection.initialItem[data.key]"/>
 
                 </md-input-container>    
             </div>

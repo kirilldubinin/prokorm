@@ -44,8 +44,8 @@ angular.module('mytodo')
             });    
         };
 
-        feedHttp.getFeed = function (feedId) {
-            return $http.get(urlBase + feedId).then(function(response) {
+        feedHttp.getFeedEdit = function (feedId) {
+            return $http.get(urlBase + feedId + '/edit').then(function(response) {
                 if (response.data) {
                     return response.data;
                 }

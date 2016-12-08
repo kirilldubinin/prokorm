@@ -79,11 +79,17 @@
 
         });
 
-        $scope.$on('$stateChangeSuccess', function (oldState, newState) {
+        $scope.$on('$stateChangeSuccess', function (event, newState, params, oldState) {
             vm.isDiffMode = newState.name === 'farm.instance.feed.diff';
+            
+            // update list after switch to diff mode
             if (vm.isDiffMode) {
                 vm.selectedItem = null;
-            } else if (newState.name === 'farm.instance.feed') {
+            } 
+            // update list after delete or add new feed
+            else if (newState.name === 'farm.instance.feed' || 
+                        (oldState.name === 'farm.instance.feed.new' && 
+                        newState.name === 'farm.instance.feed.instance')) {
                 feedHttp.getFeeds().then(function(feeds) {
                     vm.feedItems = feeds;
                 });
