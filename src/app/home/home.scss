@@ -2,7 +2,7 @@
 	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #6a6c6f;
     font-size: 22px;
-    padding: 10px 8px 0px 6px;
+    padding: 10px 10px 0px 10px;
 	.user-company {
 		
 	}
@@ -22,6 +22,7 @@
 }
 
 .list-header {
+	height: 60px;
 	border-bottom: 1px solid #ddd;
 	.module-name {
 		font-size: 22px;
@@ -29,7 +30,10 @@
 	    text-transform: uppercase;
 	    padding: 12px;
 	}
+
 	.md-fab {
-		font-size: 18px;
+		&.add-feed-btn {
+			font-size: 32px;
+		}		
 	}
 }

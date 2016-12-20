@@ -1,11 +1,11 @@
 .feed {
 
 	.weight-control {
-		width: auto;
-	    border: 2px solid #009688;
-	    height: 26px;
+		border: 2px solid #009688;
+	    height: 29px;
 	    border-radius: 3px;
-		font-size: 22px;
+	    font-size: 22px;
+	    margin-top: 16px;
 
 		.balance {
 			display: none;
@@ -41,6 +41,9 @@
 	
 	.feed-list {
 		font-size: 11px;
+	    height: calc(100% - 60px);
+	    overflow: auto;
+	    padding-top: 0;
 
 		.feed-item {
 
@@ -89,11 +92,11 @@
 
 			.weight {
 				&.weight-control {
-					margin-top: 2px;
-					line-height: 16px;
-					height: 15px;
-					float: right;
-					font-size: 11px;
+					margin-top: 5px;
+				    line-height: 15px;
+				    height: 18px;
+				    float: right;
+				    font-size: 11px;
 				}
 			}
 
@@ -121,7 +124,10 @@
 		}
 	}	
 
+	.navigator {
+		height: calc(100% - 14px);
+	}
 	.dashboard { 
-		height: 100%
+		height: calc(100% - 14px);
 	}
 }

@@ -14,12 +14,19 @@
         abstract: true,
         templateUrl: 'app/rootTemplate.html',
       })
+      .state('farm.registration', {
+        url: '/registration',
+        templateUrl: 'app/login/registration.html',
+        controller: 'RegistrationController',
+        controllerAs: 'registration'  
+      })
       .state('farm.login', {
         url: '/login',
         templateUrl: 'app/login/login.html',
         controller: 'LoginController',
         controllerAs: 'login'  
-      }).state('farm.instance', {
+      })
+      .state('farm.instance', {
         url: '/:id',
         templateUrl: 'app/home/home.html',
         controller: 'HomeController',

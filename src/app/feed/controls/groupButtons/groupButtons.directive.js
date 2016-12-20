@@ -10,7 +10,7 @@
             onAdd: '&',
             onSelect: '&'
           },
-          //replace: true,    
+          replace: true,    
           controller: GroupButtonsController,
           controllerAs: 'groupButtons',
           bindToController: true
@@ -22,7 +22,7 @@
 
     var self = this;
     
-    $scope.$watch('self.items', function () {
+    $scope.$watch('self.items.length', function () {
       self.selected = _.last(self.items);
       self.onSelect({item: self.selected});  
     });

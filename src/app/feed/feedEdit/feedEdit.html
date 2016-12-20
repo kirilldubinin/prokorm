@@ -2,11 +2,11 @@
 
     <!-- HEADER -->
     <div class="feed-edit-header" layout="row">
-        <div flex="{{block.width}}" ng-repeat="block in feedEdit.feedItemSections">
+        <div flex="{{block.width}}" ng-class="block.key" ng-repeat="block in feedEdit.feedItemSections" layout="row">
             <label class="title">
                 {{block.label}}
             </label>
-            <group-buttons ng-if="block.key === 'analysis'" 
+            <group-buttons flex ng-if="block.key === 'analysis'" 
                 allow-add="true"
                 on-add="feedEdit.onAnalysisAdd()" 
                 on-select="feedEdit.onAnalysisSelect(item)"
@@ -33,11 +33,18 @@
                         {{data.label}}  {{data.dimension}}
                     </label>
 
+                    <!-- SELECT -->
+                    <md-select ng-if="data.isEnum" ng-model="subSection.initialItem[data.key]">
+                        <md-option ng-repeat="type in feedEdit.feedTypes" ng-value="type.value">
+                          {{type.name}}
+                        </md-option>
+                    </md-select>
+
                     <!-- INPUT NUMBER -->
-                    <input ng-if="!data.isBoolean && data.isNumber" type="number" ng-model="subSection.initialItem[data.key]"/>
+                    <input ng-if="!data.isBoolean && data.isNumber && !data.isEnum" type="number" ng-model="subSection.initialItem[data.key]"/>
 
                     <!-- INPUT -->
-                    <input ng-if="!data.isBoolean && !data.isNumber" ng-model="subSection.initialItem[data.key]"/>
+                    <input ng-if="!data.isBoolean && !data.isNumber && !data.isEnum" ng-model="subSection.initialItem[data.key]"/>
 
                 </md-input-container>    
             </div>

@@ -1,26 +1,24 @@
 <div layout="row" class="feed">
   <md-card class="navigator" md-theme="default" md-theme-watch flex="20">
-    <md-list  class="md-dense feed-list">
-      <div class="list-header" layout="row">
-        <label flex class="module-name">Корма</label>
-        <md-button ng-click="feed.goToHome()" ng-if="feed.isDiffMode" class="md-fab md-mini md-primary">
-          <
-        </md-button>
-        <md-button ng-click="feed.goToDiff()" ng-if="!feed.isDiffMode" class="md-fab md-mini md-primary" aria-label="сравнить">
-          ||
-        </md-button>
-        <md-button ng-click="feed.goToAdd()" ng-if="!feed.isDiffMode" class="md-fab md-mini md-primary" aria-label="добавить">
-          +
-        </md-button>
-        <!--<md-button ng-click="feed.addFake()" class="md-fab md-mini" aria-label="добавить">
-          +
-        </md-button>-->
-        <div class="header-actions">
-          
-        </div>
+    <div class="list-header" layout="row">
+      <div flex class="module-name">Корма</div>
+      <!--<md-button ng-click="feed.goToHome()" ng-if="feed.isDiffMode" class="md-fab md-mini md-primary">
+        <
+      </md-button>
+      <md-button ng-click="feed.goToDiff()" ng-if="!feed.isDiffMode" class="md-fab md-mini md-primary" aria-label="сравнить">
+        ||
+      </md-button>-->
+      <div><md-button ng-click="feed.goToAdd()" ng-if="!feed.isDiffMode" class="md-fab md-mini md-primary add-feed-btn" aria-label="добавить">
+        +
+      </md-button></div>
+      <div class="header-actions">
+        
       </div>
+    </div>
+    <md-list  class="md-dense feed-list">
+      
       <md-list-item ng-repeat="feedItem in feed.feedItems" 
-        class="md-3-line feed-item"
+        class="md-3-line feed-item {{feedItem.feedType}}"
         ng-click="feed.onFeedClick(feedItem)" 
         ng-class="{done: feedItem.done, selected: feedItem === feed.selectedItem, inDiff: feed.inDiff(feedItem)}">
         <div class="md-list-item-text">
